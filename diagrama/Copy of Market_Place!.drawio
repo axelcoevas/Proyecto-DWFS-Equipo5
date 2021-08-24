@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-24T06:18:56.941Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36 Edg/92.0.902.78" etag="52CB4Ck-Ey8UsjPNqZr3" version="14.9.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-08-24T06:22:55.217Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36 Edg/92.0.902.78" etag="rtJWqh5LKRpRV2loM2IE" version="14.9.8" type="github">
   <diagram name="Page-1" id="b5b7bab2-c9e2-2cf4-8b2a-24fd1a2a6d21">
-    <mxGraphModel dx="2310" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="2048" dy="644" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -129,10 +129,11 @@
             <mxPoint x="33" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="NQRFba9yrne1NyJjNi_C-64" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1.012;exitY=0.827;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="NQRFba9yrne1NyJjNi_C-7" target="NQRFba9yrne1NyJjNi_C-49" edge="1">
-          <mxGeometry relative="1" as="geometry">
+        <mxCell id="NQRFba9yrne1NyJjNi_C-64" value="realizaCompra" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1.012;exitY=0.827;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="NQRFba9yrne1NyJjNi_C-7" target="NQRFba9yrne1NyJjNi_C-49" edge="1">
+          <mxGeometry x="-0.3104" relative="1" as="geometry">
             <mxPoint x="-160" y="250" as="sourcePoint" />
             <mxPoint x="-170" y="430.0000000000001" as="targetPoint" />
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="NQRFba9yrne1NyJjNi_C-65" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" parent="NQRFba9yrne1NyJjNi_C-64" connectable="0" vertex="1">
@@ -246,6 +247,24 @@
         </mxCell>
         <mxCell id="DSm0Stork6P05ilONJer-7" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="1">
           <mxGeometry x="29.999999999999982" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="DSm0Stork6P05ilONJer-8" value="realizaReview" style="endArrow=block;endFill=1;html=1;edgeStyle=elbowEdgeStyle;align=left;verticalAlign=top;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NQRFba9yrne1NyJjNi_C-9" target="DSm0Stork6P05ilONJer-2">
+          <mxGeometry x="-0.2484" y="-43" relative="1" as="geometry">
+            <mxPoint x="-450" y="410" as="sourcePoint" />
+            <mxPoint x="-190" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-210" y="450" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DSm0Stork6P05ilONJer-9" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="DSm0Stork6P05ilONJer-8">
+          <mxGeometry x="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DSm0Stork6P05ilONJer-10" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="-243" y="289" as="geometry">
+            <mxPoint x="79" y="339" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
