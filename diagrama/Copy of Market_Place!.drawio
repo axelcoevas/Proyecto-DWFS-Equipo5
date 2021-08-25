@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-25T17:48:41.190Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36 Edg/92.0.902.78" etag="joxTgka60i0awhOHQLnF" version="14.9.9" type="github">
-  <diagram name="Page-1" id="b5b7bab2-c9e2-2cf4-8b2a-24fd1a2a6d21">
-    <mxGraphModel dx="2310" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2021-08-25T18:20:44.035Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="SNFAIw6XLw8n-RyDF4GR" version="14.9.9" type="github">
+  <diagram name="Diagrama de Clases" id="b5b7bab2-c9e2-2cf4-8b2a-24fd1a2a6d21">
+    <mxGraphModel dx="1558" dy="436" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -274,7 +274,7 @@
             <mxPoint x="79" y="339" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Iqm-V7LlStVa56TfB5gL-1" value="contiene" style="endArrow=block;endFill=1;html=1;edgeStyle=elbowEdgeStyle;align=left;verticalAlign=top;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="NQRFba9yrne1NyJjNi_C-77">
+        <mxCell id="Iqm-V7LlStVa56TfB5gL-1" value="contiene" style="endArrow=block;endFill=1;html=1;edgeStyle=elbowEdgeStyle;align=left;verticalAlign=top;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="NQRFba9yrne1NyJjNi_C-77" edge="1">
           <mxGeometry x="-0.081" y="-19" relative="1" as="geometry">
             <mxPoint x="69.99999999999997" y="550" as="sourcePoint" />
             <mxPoint x="23" y="660" as="targetPoint" />
@@ -284,20 +284,20 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Iqm-V7LlStVa56TfB5gL-2" value="tiene" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="Iqm-V7LlStVa56TfB5gL-1">
+        <mxCell id="Iqm-V7LlStVa56TfB5gL-2" value="tiene" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" parent="Iqm-V7LlStVa56TfB5gL-1" connectable="0" vertex="1">
           <mxGeometry x="-1" relative="1" as="geometry">
             <mxPoint x="180" y="-283" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Iqm-V7LlStVa56TfB5gL-3" value="0..n" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" connectable="0" vertex="1" parent="1">
+        <mxCell id="Iqm-V7LlStVa56TfB5gL-3" value="0..n" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" parent="1" connectable="0" vertex="1">
           <mxGeometry x="50.00000013162227" y="640" as="geometry" />
         </mxCell>
-        <mxCell id="Iqm-V7LlStVa56TfB5gL-4" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="1">
+        <mxCell id="Iqm-V7LlStVa56TfB5gL-4" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" parent="1" connectable="0" vertex="1">
           <mxGeometry x="39.999999999999986" y="630" as="geometry">
             <mxPoint x="77" y="-64" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Iqm-V7LlStVa56TfB5gL-7" value="pertenece" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="1">
+        <mxCell id="Iqm-V7LlStVa56TfB5gL-7" value="pertenece" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" parent="1" connectable="0" vertex="1">
           <mxGeometry x="310" y="480" as="geometry" />
         </mxCell>
       </root>
