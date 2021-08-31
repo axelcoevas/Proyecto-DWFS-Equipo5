@@ -1,4 +1,4 @@
-import User from './User';
+const User = require('./User');
 
 export class Seller extends User {
   constructor(userId, password, email, nickname, loginStatus, registerDate, sellerName, phoneNumber) {
@@ -31,3 +31,6 @@ export class Seller extends User {
 
   }
 }
+
+module.exports = Seller;
+

@@ -1,6 +1,6 @@
-import User from './User';
+const User = require('./User');
 
-export class Buyer extends User {
+class Buyer extends User {
   constructor(userId, password, email, nickname, loginStatus, registerDate, customerName, address, creditCardInfo, shoppingInfo) {
     super(userId, password, email, nickname, loginStatus, registerDate);
     this.customerName = customerName;
@@ -33,3 +33,5 @@ export class Buyer extends User {
 
   }
 }
+
+module.exports = Buyer;

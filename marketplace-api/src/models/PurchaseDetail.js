@@ -1,4 +1,4 @@
-export class PurchaseDetail {
+class PurchaseDetail {
   constructor(purchaseDetialId, productId, quantity, subtotal, purchaseDate) {
     this.purchaseDetialId = purchaseDetialId;
     this.productId = productId;
@@ -15,3 +15,5 @@ export class PurchaseDetail {
 
   }
 }
+
+module.exports = PurchaseDetail;

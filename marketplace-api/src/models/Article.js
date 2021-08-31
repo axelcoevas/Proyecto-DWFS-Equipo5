@@ -1,4 +1,4 @@
-export class Article {
+class Article {
   constructor(productId, productName, productImage, price, quantity) {
     this.productId = productId;
     this.productName = productName;
@@ -11,3 +11,5 @@ export class Article {
 
   }
 }
+
+module.exports = Article;
