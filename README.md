@@ -7,8 +7,8 @@ Establecer una plataforma tipo marketplace con dos actores principales (Comprado
 Se espera que en la plataforma se consulten artículos aún sin ser miembro identificado.
 
 #### Fuera del alcance
--Chat de comunicación de forma interna, sólo se compartirán los datos de contacto.
--Servicio externo ó interno de sistema de pago.
+- Chat de comunicación de forma interna, sólo se compartirán los datos de contacto.
+- Servicio externo ó interno de sistema de pago.
 
 # Teammates 8
 
