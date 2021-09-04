@@ -21,19 +21,19 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
 ![alabra](https://user-images.githubusercontent.com/85530193/132101712-16503a94-45f5-46a6-815c-78a74d256fe0.png) | ![acuevas](https://user-images.githubusercontent.com/85530193/132101749-5594e6e2-669d-475f-8cfa-daca31b0411e.png) | ![ddorantes](https://user-images.githubusercontent.com/85530193/132101764-061aadee-064e-4f48-8f20-43f8e2066c7a.png) | ![amaranon](https://user-images.githubusercontent.com/85530193/132101768-d200b8ee-5ec8-4909-a4d9-96adb8dcf028.png) | ![bcabrera](https://user-images.githubusercontent.com/85530193/132101775-019284cd-3ea1-4697-9113-8e6d1ea8afdf.png)
 
 ## Requerimientos
-> Vendedor
+> **Vendedor**
 - Permitir a los usuarios interesados en vender, registrarse y documentar su información de tienda y contacto.
 - Publicar artículos para su venta a los vendedores.
-> General
+> **General**
 - Visualizar artículos en venta, público en general.
-> Comprador
+> **Comprador**
 - Permitir a los usuarios interesados en comprar, registrarse y poder realizar compras de artículos.
 - Permitir escribir reseñas del artículo post-venta a compradores.
 
 ### Actores
-- Comprador: Usuario logueado dentro de la plataforma Bazaar! que puede realizar busqueda de artículos de su interés y formalizar una compra de artículos publicados, así como escribir reseñas sobre el evento de compra y su historial de compras.
-- Vendedor: Usuario logueado dentro de la plataforma Bazaar! que puede gestionar sus datos de contacto y publicar artículos para su venta, generando un catálogo de artículos que podrá gestionar cuando sea requerido, así como también consultar su historial de ventas realizadas.
-- Publico en general: Usuario NO logueado en la plataforma Bazaar! que puede consultar la página principal y realizar búsqueda de artículos publicados en la plataforma. 
+- ***Comprador:*** Usuario logueado dentro de la plataforma Bazaar! que puede realizar busqueda de artículos de su interés y formalizar una compra de artículos publicados, así como escribir reseñas sobre el evento de compra y su historial de compras.
+- ***Vendedor:*** Usuario logueado dentro de la plataforma Bazaar! que puede gestionar sus datos de contacto y publicar artículos para su venta, generando un catálogo de artículos que podrá gestionar cuando sea requerido, así como también consultar su historial de ventas realizadas.
+- ***Publico en general:*** Usuario NO logueado en la plataforma Bazaar! que puede consultar la página principal y realizar búsqueda de artículos publicados en la plataforma. 
 
 ## Historias de Usuario
 - Como comprador deseo buscar artículos en venta que me interesen y ver su rating de revisión.
