@@ -21,7 +21,12 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
 ![alabra](https://user-images.githubusercontent.com/85530193/132101712-16503a94-45f5-46a6-815c-78a74d256fe0.png) | ![acuevas](https://user-images.githubusercontent.com/85530193/132101749-5594e6e2-669d-475f-8cfa-daca31b0411e.png) | ![ddorantes](https://user-images.githubusercontent.com/85530193/132101764-061aadee-064e-4f48-8f20-43f8e2066c7a.png) | ![amaranon](https://user-images.githubusercontent.com/85530193/132101768-d200b8ee-5ec8-4909-a4d9-96adb8dcf028.png) | ![bcabrera](https://user-images.githubusercontent.com/85530193/132101775-019284cd-3ea1-4697-9113-8e6d1ea8afdf.png)
 
 
-# Requerimientos
+### Actores
+- Comprador
+- Vendedor
+- Administrador
+
+## Requerimientos
 > Vendedor
 - Permitir a los usuarios interesados en vender, registrarse y documentar su información de tienda y contacto.
 - Publicar artículos para su venta a los vendedores.
@@ -42,14 +47,8 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
 - Como vendedor quiero actualizar las publicaciones de artículos generadas.
 - Como vendedor me gustaría consultar mi historial de ventas.
 
-
 ## Casos de Uso
 
-
-## Actores
-- Comprador
-- Vendedor
-- Administrador
 
 ## UML diagrams
 
