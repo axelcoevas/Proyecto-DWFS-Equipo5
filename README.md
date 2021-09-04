@@ -47,6 +47,7 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
 - Como vendedor me gustaría consultar mi historial de ventas.
 
 ## Casos de Uso
+![Casos_de_Uso_1](https://user-images.githubusercontent.com/85530193/132103736-aa485cc4-c40a-4f94-9466-d52b3e29d85b.jpeg)
 
 
 ## UML diagrams
