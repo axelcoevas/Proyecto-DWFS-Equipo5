@@ -50,5 +50,23 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
 ![Casos_de_Uso_1](https://user-images.githubusercontent.com/85530193/132103736-aa485cc4-c40a-4f94-9466-d52b3e29d85b.jpeg)
 
 
-## UML diagrams
+## UML diagrama
 ![Bazaar!_v_jpg](https://user-images.githubusercontent.com/85530193/132103493-b09c2e41-1776-4ab9-ae4b-1c036afee826.jpg)
+
+## Descripción técnica
++ Las tecnologías para la implementación de la plataforma Bazaar! son las siguientes:
+  + HTML5
+  + Javascript
+  + CSS
+  + Bootstrap
+  + Github
+  + Node
++ Herramientas:
+  + Adobe Xd
+  + Visual Studio Code
+  + Mongo DB
++ Dependencias:
+  + Bodyparser
+  + cors
+  + express
+- Para ejecutar el proyecto se requiere clonar el repositorio [Links with title](https://github.com/axelcoevas/Proyecto-DWFS-Equipo8 "Repo Bazaar!")  
