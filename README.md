@@ -4,8 +4,10 @@
 About
 
 # Teammates 8
-Antonio Labra Guerrero
-![image](https://user-images.githubusercontent.com/85530193/132098840-f88aa228-b529-4a4e-a0c4-9c553453adc3.png)
+
+![image](https://user-images.githubusercontent.com/85530193/132099007-fb286ed2-044a-42d2-babe-8dee2320ca17.png)
+> Antonio Labra Guerrero
+
 > Ian Axel Cuevas Olvera
 ![image](https://user-images.githubusercontent.com/85530193/132098853-4d3f1368-f078-4b75-a02f-c86435e57386.png)
 > David Dorantes Torres
