@@ -73,5 +73,9 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
   1. Clonar el repositorio [Repo Bazaar!](https://github.com/axelcoevas/Proyecto-DWFS-Equipo8 "Repo Bazaar!")
   2. Cargar las dependencias de modulos, los cuáles se encuentran dentro de package.json:
   > npm install
+
   - O en su defecto descargarlas directamente:
   > npm install express body-parser cors
+
+  3.- Ejecutar el servidor para que la API pueda resolver las peticiones:
+  > npm run dev
