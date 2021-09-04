@@ -5,8 +5,9 @@ About
 
 # Teammates 8
 
-![image](https://user-images.githubusercontent.com/85530193/132099007-fb286ed2-044a-42d2-babe-8dee2320ca17.png)
-> Antonio Labra Guerrero
+Antonio Labra Guerrero  | ![image](https://user-images.githubusercontent.com/85530193/132099007-fb286ed2-044a-42d2-babe-8dee2320ca17.png)
+----------------------- | -------------
+
 
 ![image](https://user-images.githubusercontent.com/85530193/132099065-4ce30efd-6370-4153-90e7-1d6e29a26006.png)
 > Ian Axel Cuevas Olvera
