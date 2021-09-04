@@ -69,4 +69,4 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
   + Bodyparser
   + cors
   + express
-- Para ejecutar el proyecto se requiere clonar el repositorio [Links with title](https://github.com/axelcoevas/Proyecto-DWFS-Equipo8 "Repo Bazaar!")  
+- Para ejecutar el proyecto se requiere clonar el repositorio [Repo Bazaar!](https://github.com/axelcoevas/Proyecto-DWFS-Equipo8 "Repo Bazaar!")  
