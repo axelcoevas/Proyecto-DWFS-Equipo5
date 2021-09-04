@@ -1,6 +1,21 @@
 # Proyecto-DWFS-Equipo8
+
 # Market_Place!
 About
+
+# Teammates 8
+Antonio Labra Guerrero
+![image](https://user-images.githubusercontent.com/85530193/132098840-f88aa228-b529-4a4e-a0c4-9c553453adc3.png)
+> Ian Axel Cuevas Olvera
+![image](https://user-images.githubusercontent.com/85530193/132098853-4d3f1368-f078-4b75-a02f-c86435e57386.png)
+> David Dorantes Torres
+![image](https://user-images.githubusercontent.com/85530193/132098859-bc547b49-ca82-4915-8fe2-b128e614aae1.png)
+> Luis Alonso Marañón Solorio
+![image](https://user-images.githubusercontent.com/85530193/132098865-3be2f3df-d48f-4cbc-bb71-bce4497e4ac9.png)
+> Brayan Eleazar Cabrera Lejona
+![image](https://user-images.githubusercontent.com/85530193/132098872-b8140069-a67d-4c29-8733-14f106a9c18e.png)
+
+
 # Requerimientos
 > Vendedor
 - Permitir a los usuarios interesados en vender, registrarse y documentar su información de tienda y contacto.
