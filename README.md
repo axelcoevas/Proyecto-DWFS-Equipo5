@@ -8,14 +8,17 @@ About
 ![image](https://user-images.githubusercontent.com/85530193/132099007-fb286ed2-044a-42d2-babe-8dee2320ca17.png)
 > Antonio Labra Guerrero
 
+![image](https://user-images.githubusercontent.com/85530193/132099065-4ce30efd-6370-4153-90e7-1d6e29a26006.png)
 > Ian Axel Cuevas Olvera
-![image](https://user-images.githubusercontent.com/85530193/132098853-4d3f1368-f078-4b75-a02f-c86435e57386.png)
+
+![image](https://user-images.githubusercontent.com/85530193/132099070-68817ed6-d3f7-4758-a774-e165a803e444.png)
 > David Dorantes Torres
-![image](https://user-images.githubusercontent.com/85530193/132098859-bc547b49-ca82-4915-8fe2-b128e614aae1.png)
+
+![image](https://user-images.githubusercontent.com/85530193/132099075-7b9c4695-bd22-4975-bfce-ae6e5131b7ab.png)
 > Luis Alonso Marañón Solorio
-![image](https://user-images.githubusercontent.com/85530193/132098865-3be2f3df-d48f-4cbc-bb71-bce4497e4ac9.png)
+
+![image](https://user-images.githubusercontent.com/85530193/132099089-526eea3d-52d4-4c15-a542-021f94a8b45a.png)
 > Brayan Eleazar Cabrera Lejona
-![image](https://user-images.githubusercontent.com/85530193/132098872-b8140069-a67d-4c29-8733-14f106a9c18e.png)
 
 
 # Requerimientos
