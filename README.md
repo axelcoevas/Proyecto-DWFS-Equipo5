@@ -1,7 +1,14 @@
 # Proyecto-DWFS-Equipo8
 
-# Market_Place!
-About
+# Bazaar!
+Bazaar! es una plataforma de marketplace que provee servicios centralizados para la compra-venta de artículos, colaborando con los usuarios creando un ambiente de valor para llevar a cabo trueques y compra-venta de forma segura y responsable.
+### Alcance
+Establecer una plataforma tipo marketplace con dos actores principales (Comprador y Vendedor), quienes podrán interactúar entre sí una vez formalizado la acción de compra sobre el artículo de interés publicado por el vendedor.
+Se espera que en la plataforma se consulten artículos aún sin ser miembro identificado.
+
+### Fuera del alcance
+Chat de comunicación de forma interna, sólo se compartirán los datos de contacto.
+Servicio externo ó interno de sistema de pago.
 
 # Teammates 8
 
