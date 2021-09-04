@@ -32,6 +32,15 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
 - Permitir escribir reseñas del artículo post-venta a compradores.
 
 ## Historias de Usuario
+- Como comprador deseo buscar artículos en venta que me interesen y ver su rating de revisión.
+- Como comprador realizaría compras de artículos publicados por otras personas.
+- Como comprador me gustaría escribir valoraciones de las compras realizadas.
+- Como comprador me gustaría consultar mi historial de compras.
+- Como vendedor deseo que compradores potenciales vean mis productos.
+- Como vendedor quiero reflejar la reputación de mis artículos en la plataforma.
+- Como vendedor quiero realizar publicaciones de artículos para su venta.
+- Como vendedor quiero actualizar las publicaciones de artículos generadas.
+- Como vendedor me gustaría consultar mi historial de ventas.
 
 
 ## Casos de Uso
