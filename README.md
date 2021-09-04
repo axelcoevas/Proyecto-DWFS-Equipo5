@@ -7,7 +7,7 @@ About
 
 Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Luis Alonso Marañón Solorio  | Brayan Eleazar Cabrera Lejona  |
 ----------------------- | ----------------------- | ----------------------- |  ----------------------- |  ----------------------- |
-![image](https://user-images.githubusercontent.com/85530193/132099007-fb286ed2-044a-42d2-babe-8dee2320ca17.png) | ![image](https://user-images.githubusercontent.com/85530193/132099065-4ce30efd-6370-4153-90e7-1d6e29a26006.png) | ![image](https://user-images.githubusercontent.com/85530193/132099070-68817ed6-d3f7-4758-a774-e165a803e444.png) | ![image](https://user-images.githubusercontent.com/85530193/132099075-7b9c4695-bd22-4975-bfce-ae6e5131b7ab.png) | ![image](https://user-images.githubusercontent.com/85530193/132099089-526eea3d-52d4-4c15-a542-021f94a8b45a.png)
+![alabra](https://user-images.githubusercontent.com/85530193/132101712-16503a94-45f5-46a6-815c-78a74d256fe0.png) | ![image](https://user-images.githubusercontent.com/85530193/132099065-4ce30efd-6370-4153-90e7-1d6e29a26006.png) | ![image](https://user-images.githubusercontent.com/85530193/132099070-68817ed6-d3f7-4758-a774-e165a803e444.png) | ![image](https://user-images.githubusercontent.com/85530193/132099075-7b9c4695-bd22-4975-bfce-ae6e5131b7ab.png) | ![image](https://user-images.githubusercontent.com/85530193/132099089-526eea3d-52d4-4c15-a542-021f94a8b45a.png)
 
 
 # Requerimientos
