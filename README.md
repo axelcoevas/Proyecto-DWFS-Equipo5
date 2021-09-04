@@ -79,3 +79,6 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
 
   3.- Ejecutar el servidor para que la API pueda resolver las peticiones:
   ` npm run dev `
+
+## Estructura del proyecto
+***REEMPLAZAR ESTE TEXTO Y PEGAR AQUÍ EVIDENCIA DE COMO TENEMOS ESTRUCTURADO EL SITIO, DONDE SE VEAN LOS ROUTE, CONTROLLER, MODEL E INDEX***
