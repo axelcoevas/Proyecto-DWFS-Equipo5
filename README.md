@@ -3,10 +3,10 @@
 # Bazaar!
 **Bazaar!** es una plataforma de marketplace que provee servicios centralizados para la compra-venta de artículos, colaborando con los usuarios creando un ambiente de valor para llevar a cabo trueques y compra-venta de forma segura y responsable.
 
-### Temática del proyecto
+#### Temática del proyecto
 > El proyecto a desarrollar será un Marketplace, con la finalidad de permitir a distintos usuarios comprar y vender artículos dentro de una misma plataforma. Los vendedores podrán ofrecer productos que necesiten vender y los compradores obtener productos que se encuentren dentro del sitio.
 
-#### Alcance
+##### Alcance
 - Establecer una ***plataforma tipo marketplace*** con dos actores principales (Comprador y Vendedor), quienes podrán interactúar entre sí una vez formalizado la acción de compra sobre el artículo de interés publicado por el vendedor.
 - Se espera que en la plataforma se consulten artículos aún sin ser miembro identificado.
 
@@ -14,7 +14,7 @@
 - Chat de comunicación de forma interna, sólo se compartirán los datos de contacto.
 - Servicio externo ó interno de sistema de pago.
 
-# Teammates 8
+## Teammates 8
 
 Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Luis Alonso Marañón Solorio  | Brayan Eleazar Cabrera Lejona  |
 ----------------------- | ----------------------- | ----------------------- |  ----------------------- |  ----------------------- |
