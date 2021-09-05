@@ -20,7 +20,6 @@ app.set('view.engine', '.hbs');
 
 // Routes
 app.use(require('./routes'));
-app.use('/links', require('./routes/links'));
 
 // Start the server
 app.listen(app.get('port'), () => {
