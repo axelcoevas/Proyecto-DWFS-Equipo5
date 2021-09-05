@@ -19,6 +19,8 @@ app.set('view.engine', '.hbs');
 
 // Routes
 app.use(require('./routes'));
+app.use('/comprador', require('./routes/comprador'));
+app.use('/vendedor', require('./routes/vendedor'));
 
 // Start the server
 app.listen(app.get('port'), () => {
