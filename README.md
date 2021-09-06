@@ -80,6 +80,8 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
 
   3.- Ejecutar el servidor para que la API pueda resolver las peticiones:
   ` npm run dev `
+  
+  4.- URL base para el llamado de la API ` http://localhost:4000/api/v1/ `
 
 ## Estructura del proyecto
 ![image](https://user-images.githubusercontent.com/85530193/132157902-40c7f40a-b245-466b-9ef4-34557d287a92.png)
