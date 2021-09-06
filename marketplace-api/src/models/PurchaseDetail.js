@@ -1,6 +1,6 @@
 class PurchaseDetail {
-  constructor(purchaseDetialId, productId, quantity, subtotal, purchaseDate) {
-    this.purchaseDetialId = purchaseDetialId;
+  constructor(purchaseDetailId, productId, quantity, subtotal, purchaseDate) {
+    this.purchaseDetailId = purchaseDetailId;
     this.productId = productId;
     this.quantity = quantity;
     this.subtotal = subtotal;
