@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routes
-app.use("/api/v1", require("./routes"));
 
 // Start the server
 app.listen(app.get('port'), () => {
