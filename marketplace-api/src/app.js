@@ -17,10 +17,12 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view.engine', '.hbs');
 
+// Body Parser
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // Routes
-app.use(require('./routes'));
-app.use('/comprador', require('./routes/comprador'));
-app.use('/vendedor', require('./routes/vendedor'));
 
 // Start the server
 app.listen(app.get('port'), () => {

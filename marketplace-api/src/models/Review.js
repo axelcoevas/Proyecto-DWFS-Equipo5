@@ -1,9 +1,10 @@
 class Review {
-  constructor(reviewId, userId, purchaseId, quantity, sumary) {
+  constructor(reviewId, userId, purchaseId, productId, qualify, sumary) {
     this.reviewId = reviewId;
     this.userId = userId;
     this.purchaseId = purchaseId;
-    this.quantity = quantity;
+    this.productId = productId;
+    this.qualify = qualify;
     this.sumary = sumary;
   }
 

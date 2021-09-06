@@ -8,6 +8,7 @@ class User {
     this.registerDate = registerDate;
   }
 
+  // Update User Method
   verifyLogin() {
 
   }
