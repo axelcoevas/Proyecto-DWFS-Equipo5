@@ -83,3 +83,5 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
 
 ## Estructura del proyecto
 ![image](https://user-images.githubusercontent.com/85530193/132157902-40c7f40a-b245-466b-9ef4-34557d287a92.png)
+![image](https://user-images.githubusercontent.com/85530193/132158059-14d7f2ea-60e9-458c-925b-d8c8e6a39d94.png)
+
