@@ -17,8 +17,13 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view.engine', '.hbs');
 
+// Body Parser
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // Routes
-app.use(require('./routes'));
+app.use("/api/v1", require("./routes"));
 
 // Start the server
 app.listen(app.get('port'), () => {
