@@ -61,6 +61,7 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
   + Bootstrap
   + Github
   + Node
+  + HandleBarsjs (para manejo de views en hbs)
 + Herramientas:
   + Adobe Xd
   + Visual Studio Code
@@ -81,4 +82,4 @@ Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Lui
   ` npm run dev `
 
 ## Estructura del proyecto
-***REEMPLAZAR ESTE TEXTO Y PEGAR AQUÍ EVIDENCIA DE COMO TENEMOS ESTRUCTURADO EL SITIO, DONDE SE VEAN LOS ROUTE, CONTROLLER, MODEL E INDEX***
+![image](https://user-images.githubusercontent.com/85530193/132157902-40c7f40a-b245-466b-9ef4-34557d287a92.png)
