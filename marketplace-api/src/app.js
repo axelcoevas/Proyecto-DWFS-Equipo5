@@ -24,6 +24,13 @@ app.use(bodyParser.json());
 
 // Routes
 
+app.use(require('./routes'));
+app.use('/comprador', require('./routes/comprador'));
+app.use('/vendedor', require('./routes/vendedor'));
+app.use("/api/v1", require("./routes"));
+
+
+
 // Start the server
 app.listen(app.get('port'), () => {
     console.log("Server on port", app.get('port'));
