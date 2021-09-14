@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('../views/index.hbs');
+  res.render('../views/index.hbs');
 });
 
 // USERS ROUTE
@@ -14,4 +14,5 @@ router.use("/catalogs", require("./catalogs"));
 router.use("/reviews", require("./reviews"));
 router.use("/purchases", require("./purchases"));
 router.use("/purchasesDetail", require("./purchasesdetail"));
+
 module.exports = router;
