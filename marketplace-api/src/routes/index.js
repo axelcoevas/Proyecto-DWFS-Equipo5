@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -13,6 +13,5 @@ router.use("/articles", require("./articles"));
 router.use("/catalogs", require("./catalogs"));
 router.use("/reviews", require("./reviews"));
 router.use("/purchases", require("./purchases"));
-router.use("/purchasesDetail", require("./purchasesdetail"));
 
 module.exports = router;

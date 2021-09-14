@@ -6,6 +6,7 @@ function makePurchase(req, res) {
     res.status(200).send(mPurchase)
 }
 
+
 // READ
 function showPurchase(req, res) {
 
@@ -24,7 +25,28 @@ function showPurchase(req, res) {
     }
 }
 
+
+// READ
+function calulateSubtotal(req, res) {
+
+    const productId = req.params.id
+    const { quantity } = req.body
+
+    // Get item by Id using DB to get current item state 
+
+    const product = parseInt(productId)
+
+    if (product) {
+        const subtotal = productId * quantity
+        res.status(200).send({ subtotal: subtotal })
+    } else {
+        res.status(404).send(`Couldn't calculate subtotal. Try again, please`)
+    }
+}
+
+
 module.exports = {
     makePurchase,
+    calulateSubtotal,
     showPurchase
 };

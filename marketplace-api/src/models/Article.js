@@ -10,6 +10,12 @@ class Article {
   showItem() {
 
   }
+
+
+  calculateQualifying(){
+    
+  }
+
 }
 
 module.exports = Article;
