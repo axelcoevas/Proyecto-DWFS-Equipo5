@@ -6,30 +6,6 @@ class Seller extends User {
     this.sellerName = sellerName;
     this.phoneNumber = phoneNumber;
   }
-
-  register() {
-
-  }
-
-  login() {
-
-  }
-
-  updateProfile() {
-
-  }
-
-  salesHistory() {
-
-  }
-
-  createItem() {
-
-  }
-
-  updateItem() {
-
-  }
 }
 
 module.exports = Seller;

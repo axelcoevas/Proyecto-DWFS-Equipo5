@@ -7,11 +7,6 @@ class User {
     this.loginStatus = loginStatus;
     this.registerDate = registerDate;
   }
-
-  // Update User Method
-  verifyLogin() {
-
-  }
 }
 
 module.exports = User;

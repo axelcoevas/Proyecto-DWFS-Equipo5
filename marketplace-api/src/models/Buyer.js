@@ -8,30 +8,6 @@ class Buyer extends User {
     this.creditCardInfo = creditCardInfo;
     this.shoppingInfo = shoppingInfo;
   }
-
-  register() {
-
-  }
-
-  login() {
-
-  }
-
-  updateProfile() {
-
-  }
-
-  shopping() {
-
-  }
-
-  shoppingHistory() {
-
-  }
-
-  writeReview() {
-
-  }
 }
 
 module.exports = Buyer;

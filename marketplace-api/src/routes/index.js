@@ -5,7 +5,6 @@ router.get('/', (req, res) => {
   res.render('../views/index.hbs');
 });
 
-// USERS ROUTE
 router.use("/users", require("./users"));
 router.use("/sellers", require("./sellers"));
 router.use("/buyers", require("./buyers"));
