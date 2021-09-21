@@ -1,11 +1,11 @@
 const router = require("express").Router();
 
 const {
-    showItem,
-    createItem,
-    updateItem,
-    deleteItem,
-} = require("../controllers/articles")
+  showItem,
+  createItem,
+  updateItem,
+  deleteItem,
+} = require("../controllers/products");
 
 router.get("/", showItem);
 router.post("/", createItem);
