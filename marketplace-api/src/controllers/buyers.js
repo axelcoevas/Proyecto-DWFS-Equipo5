@@ -23,42 +23,20 @@ function getBuyers(req, res, next) {
   Buyer.findById(req.usuario.id)
     .then(buyer => {
       if (!buyer) {
-        return res.json(buyer.publicData());
+        return res.sendStatus(401);
       }
-    });
+      return res.json(buyer.publicData());
+    })
+    .catch(next);
 }
 
 // UPDATE
-function updateProfile(req, res) {
-
-  const sellerId = req.params.id;
-
-  // Get buyer by Id using DB to get current buyer state
-  const seller = parseInt(sellerId);
-
-  // If buyer exists start to update
-
-  if (seller) {
-
-    let mSeller = new Seller(sellerId,
-      "password",
-      "juan.doe@gmail.com",
-      "nickname",
-      true,
-      new Date().toLocaleString(),
-      "Juan Doe",
-      "0987654321");
-
-    const mChanges = req.body;
-    mSeller = { ...mSeller, ...mChanges };
-
-    // send buyer to db to update it and return response
-    res.status(200).send(mSeller);
-
-  } else {
-    res.status(404).send(`We cannot update buyer with id "${sellerId}". Try again, please`);
-  }
-
+function updateBuyer(req, res) {
+  Buyer.findById(req.usuario.id)
+    .then(buyer => {
+      if (!buyer) { return res.sendStatus(401); }
+      //aquí me quedé
+    });
 }
 
 // DELETE
