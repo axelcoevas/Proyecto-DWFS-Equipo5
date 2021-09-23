@@ -18,6 +18,14 @@ const jwt = require('jsonwebtoken');
 const secret = require('../config').secret;
 
 const UsuarioSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: [true, "This field can't be empty"],
+    lowercase: true,
+    match: [/^[a-z0-9]+$/, "Invalid username"],
+    index: true
+  },
   firstname: {
     type: String,
     required: true
@@ -29,50 +37,50 @@ const UsuarioSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required: [true, "Falta email"],
+    required: [true, 'Email missing'],
     match: [/\$+@\$+.\$/],
-    index: true
-  },
-  username: {
-    type: String,
-    unique: true,
-    required: [true, "This field can't be empty"],
-    lowercase: true,
-    match: [/^[a-z0-9]+$/, "Invalid username"],
     index: true
   },
   type: {
     type: String,
-    enum: ['seller', 'buyer']
+    enum: ['buyer', 'seller']
   },
+  address: String,
+  creditCardInfo: String,
+  shoppingInfo: String,
+  phoneNumber: String,
   hash: String,
   salt: String
 }, { collection: 'Users', timestamps: true });
 
 UsuarioSchema.plugin(uniqueValidator, { message: 'Already exists' });
 
-UsuarioSchema.methods.publicData = () => {
+UsuarioSchema.methods.publicData = function () {
   return {
     id: this.id,
     firstname: this.firstname,
     lastname: this.lastname,
     email: this.email,
     username: this.username,
-    type: this.type
+    type: this.type,
+    address: this.address,
+    creditCardInfo: this.creditCardInfo,
+    shoppingInfo: this.shoppingInfo,
+    phoneNumber: this.phoneNumber
   };
 };
 
 UserSchema.methods.createPassword = function (password) {
   this.salt = crypto.randomBytes(16).toString('hex');
-  this.hash = crypto.pbkdf2Sync(passwrod, this.salt, 10000, 512, 'sha512').toString('hex');
+  this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
 };
 
 UserSchema.methods.validatePassword = function (password) {
-  const newHash = crypto.pbkdf2Sync(passwrod, this.salt, 10000, 512, 'sha512').toString('hex');
+  const newHash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
   return newHash === this.hash;
 };
 
-UserSchema.methods.getJWT = function () {
+UserSchema.methods.generateJWT = function () {
   const today = new Date();
   const exp = new Date(today);
   exp.setDate(today.getDate() + 60);
@@ -92,23 +100,6 @@ UserSchema.methods.toAuthJSON = function () {
   };
 };
 
-const User = mongoose.model('User', UserSchema);
-
-//  Schema for buyers
-
-const BuyerSchema = User.discriminator('Buyer', new mongoose.Schema({
-  address: {
-    type: String,
-    required: [true, "This field can't be empty"]
-  },
-  creditCardInfo: String,
-  shoppingInfo: String
-}));;
-
-//  Schema for sellers
-
-const SellerSchema = User.discriminator('Seller', new mongoose.Schema({
-  phoneNumber: String
-}));
+mongoose.model('User', UserSchema);
 
 

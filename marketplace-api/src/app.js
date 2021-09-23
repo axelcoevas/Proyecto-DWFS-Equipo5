@@ -1,33 +1,35 @@
 //Requerimientos
 const express = require('express');
+const app = express();
 const path = require('path');
 const exphbs = require('express-handlebars');
+const MONGO_URI = process.env.MONGO_URI;
+const PORT = process.env.PORT;
 
-//Inicialización
-const app = express();
+//  Mongoose
+const mongoose = require('mongoose');
+mongoose.connect(MONGO_URI);
+mongoose.set('debug', true);
 
-// Settings
-app.set('port', process.env.PORT || 4000);
-app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', exphbs({
-  defaultLayout: 'main',
-  layoutsDir: path.join(app.get('views'), 'layouts'),
-  partialsDir: path.join(app.get('views'), 'partials'),
-  extname: '.hbs'
-}));
-app.set('view.engine', '.hbs');
-
-// Body Parser
+//  Body Parser
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Routes
+//  Models
+require('./models/Catalog');
+require('./models/Product');
+require('./models/Purchase');
+require('./models/Review');
+require('./models/User');
 
-app.use(require('./routes'));
+//  Passport
+require('./config/passport');
+
+//  Routes
 app.use("/api/v1", require("./routes"));
 
-// Start the server
-app.listen(app.get('port'), () => {
-  console.log("Server on port", app.get('port'));
+//  Start the server
+app.listen(PORT, () => {
+  console.log("Server listening on port", PORT);
 });
