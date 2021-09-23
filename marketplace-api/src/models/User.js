@@ -17,7 +17,7 @@ const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const secret = require('../config').secret;
 
-const UsuarioSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
@@ -53,9 +53,9 @@ const UsuarioSchema = new mongoose.Schema({
   salt: String
 }, { collection: 'Users', timestamps: true });
 
-UsuarioSchema.plugin(uniqueValidator, { message: 'Already exists' });
+UserSchema.plugin(uniqueValidator, { message: 'Already exists' });
 
-UsuarioSchema.methods.publicData = function () {
+UserSchema.methods.publicData = function () {
   return {
     id: this.id,
     firstname: this.firstname,
