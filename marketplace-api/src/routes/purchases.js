@@ -1,8 +1,17 @@
-const router = require("express").Router();
-const { makePurchase, calulateSubtotal, showPurchase } = require("../controllers/purchases");
+const router = require('express').Router();
 
-router.get("/", showPurchase);
-router.get("/:id", calulateSubtotal)
-router.post("/", makePurchase);
+const {
+  createPurchase,
+  getPurchase,
+  updatePurchase,
+  deletePurchase
+} = require('../controllers/purchases');
+
+router.get('/', getPurchase);
+router.get('/:id', getPurchase);
+router.post('/', createPurchase);
+router.put('/:id', updatePurchase);
+router.delete('/:id', deletePurchase);
 
 module.exports = router;
+

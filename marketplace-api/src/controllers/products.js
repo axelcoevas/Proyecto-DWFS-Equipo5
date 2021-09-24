@@ -1,68 +1,62 @@
-const Article = require("../models/Article")
+const mongoose = require('mongoose');
+const Product = mongoose.model('Product');
 
-// CREATE
-function createItem(req, res) {
-    const mArticle = new Article(req.body)
-    res.status(200).send(mArticle);
+function createProduct(req, res, next) {
+  var product = new Product(req.body);
+  product.save()
+    .then(product => {
+      res.status(200).send(product);
+    })
+    .catch(next);
 }
 
-// READ
-function showItem(req, res) {
-
-    const { productId, productName } = req.body
-
-    //DB connection and validation
-    if (productId && productName) {
-
-        let mArticle = new Article(
-            productId,
-            productName,
-            "https://https://picsum.photos/200/300?random=1",
-            299.99,
-            1
-        );
-
-        res.status(200).send(mArticle)
-
-    } else {
-        res.status(404).send(`Article not found. Try again, please`)
-    }
+function getProduct(req, res, next) {
+  if (req.params.id) {
+    Product.findById(req.params.id)
+      .then(product => {
+        res.send(product);
+      })
+      .catch(next);
+  } else {
+    Product.find()
+      .then(products => {
+        res.send(products);
+      })
+      .catch(next);
+  }
 }
 
-// UPDATE
-function updateItem(req, res) {
-
-    const itemId = req.params.id
-
-    // Get item by Id using DB to get current item state 
-    const item = parseInt(itemId);
-
-    // If item exists start to update
-
-    if (item) {
-
-        let mArticle = new Article(itemId, "T-Rex 3D figure", "https://picsum.photos/200/300?random=1", 299.99, 1)
-
-        const mChanges = req.body;
-        mArticle = { ...mArticle, ...mChanges };
-
-        // send article to db to update it and return response
-        res.status(200).send(mArticle)
-
-    } else {
-        res.status(404).send(`We cannot update article with id "${itemId}". Try again, please`)
-    }
-
+function updateProduct(req, res, next) {
+  Product.findById(req.params.id)
+    .then(product => {
+      if (!product) return res.sendStatus(401);
+      let newInfo = req.body;
+      if (typeof newInfo.name !== 'undefined')
+        product.name = newInfo.name;
+      if (typeof newInfo.image !== 'undefined')
+        product.image = newInfo.image;
+      if (typeof newInfo.price !== 'undefined')
+        product.price = newInfo.price;
+      if (typeof newInfo.quantity !== 'undefined')
+        product.quantity = newInfo.quantity;
+      product.save().then(updateUser => {
+        res.status(201).json(updateUser.publicData());
+      }).catch(next);
+    })
+    .catch(next);
 }
 
-// DELETE
-function deleteItem(req, res) {
-    res.status(200).send(`Article with id ${req.params.id} has been deleted successfully!`)
+function deleteProduct(req, res, next) {
+  Product.findOneAndDelete({ _id: req.params.id })
+    .then(r => {
+      res.status(200).send(`Product ${req.params.id} deleted: ${r}`);
+    })
+    .catch(next);
 }
 
 module.exports = {
-    createItem,
-    showItem,
-    updateItem,
-    deleteItem,
+  createProduct,
+  getProduct,
+  updateProduct,
+  deleteProduct
 };

@@ -1,39 +1,62 @@
-const Review = require("../models/Review")
+const mongoose = require('mongoose');
+const Review = mongoose.model('Review');
 
-function makeReview(req, res) {
-    const mReview = new Review(req.body)
-    res.send(mReview)
+function createReview(req, res, next) {
+  var review = new Review(req.body);
+  review.save()
+    .then(review => {
+      res.status(200).send(review);
+    })
+    .catch(next);
 }
 
-function showReview(req, res) {
-    const { reviewId } = req.body
-    const review = parseInt(reviewId)
-    if (review) {
-        const mReview = new Review(reviewId, 1, 2, 6, 3.5, "Me encantó, pero estuvo caro")
-        res.status(200).send(mReview)
-    } else {
-        res.status(404).send(`Review not found with id ${reviewId}`)
-    }
+function getReview(req, res, next) {
+  if (req.params.id) {
+    Review.findById(req.params.id)
+      .then(review => {
+        res.send(review);
+      })
+      .catch(next);
+  } else {
+    Review.find()
+      .then(reviews => {
+        res.send(reviews);
+      })
+      .catch(next);
+  }
 }
 
-
-function calculateQualifying(req, res) {
-    const productId = req.params.id
-    const maxRate = 5
-    const review = parseInt(productId)
-    if (review) {
-        // (rating_count * 5) / max_rating  ---Pending---
-        const mAverage = (productId * maxRate) / maxRate
-        res.status(200).send({ average: parseFloat(mAverage) })
-    } else {
-        res.status(404).send({ average: 0.0 })
-    }
+function updateReview(req, res, next) {
+  Review.findById(req.params.id)
+    .then(review => {
+      if (!review) return res.sendStatus(401);
+      let newInfo = req.body;
+      if (typeof newInfo.userId !== 'undefined')
+        review.userId = newInfo.userId;
+      if (typeof newInfo.purchaseId !== 'undefined')
+        review.purchaseId = newInfo.purchaseId;
+      if (typeof newInfo.qualify !== 'undefined')
+        review.qualify = newInfo.qualify;
+      if (typeof newInfo.summary !== 'undefined')
+        review.summary = newInfo.summary;
+      review.save().then(updateUser => {
+        res.status(201).json(updateUser.publicData());
+      }).catch(next);
+    })
+    .catch(next);
 }
 
-
+function deleteReview(req, res, next) {
+  Review.findOneAndDelete({ _id: req.params.id })
+    .then(r => {
+      res.status(200).send(`Review ${req.params.id} deleted: ${r}`);
+    })
+    .catch(next);
+}
 
 module.exports = {
-    makeReview,
-    showReview,
-    calculateQualifying
+  createReview,
+  getReview,
+  updateReview,
+  deleteReview
 };

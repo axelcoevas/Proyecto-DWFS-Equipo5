@@ -1,10 +1,17 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
 const {
-    showCatalog,
-} = require("../controllers/catalogs");
+  createCatalog,
+  getCatalog,
+  updateCatalog,
+  deleteCatalog
+} = require('../controllers/catalogs');
 
-router.get("/", showCatalog);
+router.get('/', getCatalog);
+router.get('/:id', getCatalog);
+router.post('/', createCatalog);
+router.put('/:id', updateCatalog);
+router.delete('/:id', deleteCatalog);
 
 module.exports = router;
 

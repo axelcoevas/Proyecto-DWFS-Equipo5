@@ -1,9 +1,17 @@
-const { showReview, makeReview, calculateQualifying } = require("../controllers/reviews");
+const router = require('express').Router();
 
-const router = require("express").Router();
+const {
+  createReview,
+  getReview,
+  updateReview,
+  deleteReview
+} = require('../controllers/reviews');
 
-router.post("/", makeReview);
-router.get("/", showReview);
-router.get("/:id", calculateQualifying);
+router.get('/', getReview);
+router.get('/:id', getReview);
+router.post('/', createReview);
+router.put('/:id', updateReview);
+router.delete('/:id', deleteReview);
 
 module.exports = router;
+
