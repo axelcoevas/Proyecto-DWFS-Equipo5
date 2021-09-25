@@ -12,7 +12,7 @@ const auth = require('./auth');
 router.get('/', auth.required, getUsers);
 router.post('/', signup);
 router.post('/login', login);
-router.put('/', auth.requerido, updateUser);
-router.delete('/:id', auth.requerido, deleteUser);
+router.put('/', auth.required, updateUser);
+router.delete('/:id', auth.required, deleteUser);
 
 module.exports = router;

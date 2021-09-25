@@ -3,18 +3,19 @@ const User = mongoose.model('User');
 const passport = require('passport');
 
 function signup(req, res, next) {
-  const body = req.body;
-  const password = body.password;
+  
+  const body = req.body,
+	password = body.password
 
-  delete body.password;
-  const user = new User(body);
+	delete body.password
+	const user = new User(body)
 
-  user.createPassword(password);
-  user.save()
-    .then(user => {
-      return res.status(200).json(user.toAuthJSON);
-    })
-    .catch(next);
+	user.createPassword(password);
+	user.save()
+	.then( user => {
+		return res.status(200).json(user.toAuthJSON())
+	})
+	.catch(next)
 }
 
 function login(req, res, next) {
@@ -22,16 +23,17 @@ function login(req, res, next) {
     return res.status(422).json({ error: 'You must fill all fields' });
   }
 
-  passport.authenticate('local', {
-    session: false,
-  }, function (err, user, info) {
-    if (err) { return next(err); }
+	passport.authenticate('local',
+  { session: false },
+  function (err, user, info){
+    if (err){ return next(err)}
+
     if (user) {
-      user.token = user.generateJWT();
+		  return res.status(200).json(user.toAuthJSON())
     } else {
       return res.status(422).json(info);
     }
-  })(req, res, next);
+  })(req, res, next)
 }
 
 function getUsers(req, res, next) {
@@ -49,6 +51,7 @@ function updateUser(req, res, next) {
   User.findById(req.user.id).then(user => {
     if (!user) { return res.sendStatus(401); }
     let newData = req.body;
+    console.log(newData)
     if (typeof newData.username !== 'undefined')
       user.username = newData.username;
     if (typeof newData.firstname !== 'undefined')
@@ -67,9 +70,12 @@ function updateUser(req, res, next) {
       if (typeof newData.phoneNumber !== 'undefined')
         user.phoneNumber = newData.phoneNumber;
     }
-    if (typeof newData.password !== 'undefined')
-      user.crearPassword(newData.password);
-    user.save().then(updatedUser => {
+    if (typeof newData.password !== 'undefined'){
+      user.createPassword(newData.password);
+    }
+    console.log("asi queda")
+    console.log(user)
+      user.save().then(updatedUser => {
       res.status(201).json(updatedUser.publicData());
     }).catch(next);
   }).catch(next);
@@ -77,7 +83,7 @@ function updateUser(req, res, next) {
 
 function deleteUser(req, res, next) {
   User.findOneAndDelete({ _id: req.user.id })
-    .then(res => {
+    .then( _ => {
       res.status(200).send("User deleted");
     })
     .catch(next);

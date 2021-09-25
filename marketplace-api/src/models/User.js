@@ -38,7 +38,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: [true, 'Email missing'],
-    match: [/\$+@\$+.\$/],
+    match: [/\S+@\S+\.\S+/, 'Invalid Email'],
     index: true
   },
   type: {
@@ -53,32 +53,20 @@ const UserSchema = new mongoose.Schema({
   salt: String
 }, { collection: 'Users', timestamps: true });
 
-UserSchema.plugin(uniqueValidator, { message: 'Already exists' });
-
-UserSchema.methods.publicData = function () {
-  return {
-    id: this.id,
-    firstname: this.firstname,
-    lastname: this.lastname,
-    email: this.email,
-    username: this.username,
-    type: this.type,
-    address: this.address,
-    creditCardInfo: this.creditCardInfo,
-    shoppingInfo: this.shoppingInfo,
-    phoneNumber: this.phoneNumber
-  };
-};
+UserSchema.plugin(uniqueValidator, {message : "Already exists"})
 
 UserSchema.methods.createPassword = function (password) {
   this.salt = crypto.randomBytes(16).toString('hex');
-  this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-};
+  this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512')
+  .toString("hex")
+}
 
 UserSchema.methods.validatePassword = function (password) {
-  const newHash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-  return newHash === this.hash;
-};
+  const newHash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512')
+  .toString('hex')
+  return this.hash === newHash
+}
+
 
 UserSchema.methods.generateJWT = function () {
   const today = new Date();
@@ -92,11 +80,28 @@ UserSchema.methods.generateJWT = function () {
   }, secret);
 };
 
+
 UserSchema.methods.toAuthJSON = function () {
   return {
     username: this.username,
     email: this.email,
-    token: this.generaJWT()
+    token: this.generateJWT()
+  };
+};
+
+
+UserSchema.methods.publicData = function () {
+  return {
+    id: this.id,
+    firstname: this.firstname,
+    lastname: this.lastname,
+    email: this.email,
+    username: this.username,
+    type: this.type,
+    address: this.address,
+    creditCardInfo: this.creditCardInfo,
+    shoppingInfo: this.shoppingInfo,
+    phoneNumber: this.phoneNumber
   };
 };
 
