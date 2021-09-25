@@ -2,13 +2,16 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const exphbs = require('express-handlebars');
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGODB_URI;
 const PORT = process.env.PORT;
-
 //  Mongoose
 const mongoose = require('mongoose');
-mongoose.connect(MONGO_URI);
+
+mongoose.connect(
+  MONGO_URI,
+  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
+)
+
 mongoose.set('debug', true);
 
 //  Body Parser
@@ -33,3 +36,8 @@ app.use("/api/v1", require("./routes"));
 app.listen(PORT, () => {
   console.log("Server listening on port", PORT);
 });
+
+// SEED
+
+const seed = require("../fakeseed.js")
+//seed()
