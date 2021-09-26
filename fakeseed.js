@@ -175,7 +175,7 @@ async function seedReviews(numberOfSeeds) {
                 purchaseId: faker.helpers.randomize(purchasesId),
                 productId: faker.helpers.randomize(productsId),
                 qualify: faker.datatype.number(10),
-                sumary: faker.commerce.productDescription()
+                summary: faker.commerce.productDescription()
             };
 
             const reviewDB = new Review(review);
