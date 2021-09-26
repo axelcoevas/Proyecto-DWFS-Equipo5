@@ -18,7 +18,7 @@ const ReviewSchema = new mongoose.Schema({
     purchaseId: { type: mongoose.Schema.Types.ObjectId, ref: 'Purchase' },
     productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
     qualify: Number,
-    sumary: String
+    summary: String
 }, { collection: 'Reviews', timestamps: true });
 
 ReviewSchema.methods.publicData = () => {
@@ -27,7 +27,7 @@ ReviewSchema.methods.publicData = () => {
         purchaseId: this.purchaseId,
         productId: this.productId,
         qualify: this.qualify,
-        sumary: this.sumary
+        summary: this.summary
     };
 };
 
