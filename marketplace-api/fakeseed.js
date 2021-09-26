@@ -19,17 +19,17 @@ let buyersId, sellersId, productsId, purchasesId;
 async function seedDB() {
     const numberOfSeeds = 50;
     console.log("Seeding Collections!");
-    await seedUsers(numberOfSeeds);
-    await seedProducts(numberOfSeeds);
+    // await seedUsers(numberOfSeeds);
+    // await seedProducts(numberOfSeeds);
 
-    buyersId = await User.find({ type: 'buyer' }, { _id: 1 });
-    sellersId = await User.find({ type: 'seller' }, { _id: 1 });
-    productsId = await Product.find({}, { _id: 1 });
-    await seedPurchases(numberOfSeeds);
-    await seedCatalogs(numberOfSeeds);
+    // buyersId = await User.find({ type: 'buyer' }, { _id: 1 });
+    // sellersId = await User.find({ type: 'seller' }, { _id: 1 });
+    // productsId = await Product.find({}, { _id: 1 });
+    // await seedPurchases(numberOfSeeds);
+    // await seedCatalogs(numberOfSeeds);
 
-    purchasesId = await Purchase.find({}, { _id: 1 });
-    await seedReviews(numberOfSeeds);
+    // purchasesId = await Purchase.find({}, { _id: 1 });
+    // await seedReviews(numberOfSeeds);
 
     console.log("Sending Process Done!");
 }
