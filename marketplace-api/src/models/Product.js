@@ -13,19 +13,19 @@
 const mongoose = require('mongoose');
 
 const ProductSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  price: Number,
-  quantity: Number
+    name: String,
+    image: String,
+    price: Number,
+    quantity: Number
 }, { collection: 'Products', timestamps: true });
 
 ProductSchema.methods.publicData = () => {
-  return {
-    name: this.name,
-    image: this.image,
-    price: this.price,
-    quantity: this.quantity
-  };
+    return {
+        name: this.name,
+        image: this.image,
+        price: this.price,
+        quantity: this.quantity
+    };
 };
 
 mongoose.model('Product', ProductSchema);

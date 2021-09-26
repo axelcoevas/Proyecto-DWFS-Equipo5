@@ -16,23 +16,22 @@
 const mongoose = require('mongoose');
 
 const PurchaseSchema = new mongoose.Schema({
-  buyerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  sellerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
-  reviewId: { type: mongoose.Schema.Types.ObjectId, ref: 'Review' },
-  quantity: Number,
-  subtotal: Number
+    buyerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    sellerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+    quantity: Number,
+    subtotal: Number
 }, { collection: 'Purchases', timestamps: true });
 
 PurchaseSchema.methods.publicData = () => {
-  return {
-    buyerId: this.buyerId,
-    sellerId: this.sellerId,
-    productId: this.productId,
-    reviewId: this.reviewId,
-    quantity: this.quantity,
-    subtotal: this.subtotal
-  };
+    return {
+        buyerId: this.buyerId,
+        sellerId: this.sellerId,
+        productId: this.productId,
+        reviewId: this.reviewId,
+        quantity: this.quantity,
+        subtotal: this.subtotal
+    };
 };
 
 mongoose.model('Purchase', PurchaseSchema);

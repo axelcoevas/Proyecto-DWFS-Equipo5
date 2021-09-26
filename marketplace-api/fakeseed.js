@@ -12,14 +12,26 @@ const client = new MongoClient(uri, {
     useNewUrlParser: true,
 });
 
-const catalogRoles = ['buyer', 'seller'];
+const userRoles = ['buyer', 'seller'];
+let buyersId, sellersId, productsId, purchasesId;
 
 
 async function seedDB() {
     const numberOfSeeds = 50;
     console.log("Seeding Collections!");
     await seedUsers(numberOfSeeds);
-    console.log("Seeding Process Done!");
+    await seedProducts(numberOfSeeds);
+
+    buyersId = await User.find({ type: 'buyer' }, { _id: 1 });
+    sellersId = await User.find({ type: 'seller' }, { _id: 1 });
+    productsId = await Product.find({}, { _id: 1 });
+    await seedPurchases(numberOfSeeds);
+    await seedCatalogs(numberOfSeeds);
+
+    purchasesId = await Purchase.find({}, { _id: 1 });
+    await seedReviews(numberOfSeeds);
+
+    console.log("Sending Process Done!");
 }
 
 async function seedUsers(numberOfSeeds) {
@@ -51,14 +63,12 @@ async function seedUsers(numberOfSeeds) {
             userDB.createPassword(password);
             usersList.push(userDB);
         }
-        collection.insertMany(catalogsList);
+        collection.insertMany(usersList);
         console.log("Seeding Users Complete!");
         client.close();
     } catch (err) {
         console.log(err.stack);
     }
-
-    numberOfSeeds;
 }
 
 async function seedCatalogs(numberOfSeeds) {
@@ -71,9 +81,14 @@ async function seedCatalogs(numberOfSeeds) {
         let catalogsList = [];
 
         for (let i = 0; i < numberOfSeeds; i++) {
+            let products = [];
+            const rnd = Math.random() * 9 + 1;
+            for (let j = 0; j < rnd; j++) {
+                products.push(faker.helpers.randomize(productsId));
+            }
             let catalog = {
-                userId: 1,
-                productId: 1
+                userId: faker.helpers.randomize(buyersId),
+                productId: products
             };
 
             const catalogDB = new Catalog(catalog);
@@ -98,10 +113,10 @@ async function seedProducts(numberOfSeeds) {
 
         for (let i = 0; i < numberOfSeeds; i++) {
             let product = {
-                name: '',
-                image: '',
-                price: '',
-                quantity: ''
+                name: faker.commerce.productName(),
+                image: faker.image.imageUrl(),
+                price: faker.commerce.price(),
+                quantity: faker.datatype.number()
             };
 
             const productDB = new Product(product);
@@ -116,11 +131,62 @@ async function seedProducts(numberOfSeeds) {
 }
 
 async function seedPurchases(numberOfSeeds) {
+    try {
+        await client.connect();
+        console.log("PURCHASES: Seeding Purchases");
+        const collection = client.db("Bazaar").collection("Purchases");
+        collection.drop();
 
+        let purchasesList = [];
+
+        for (let i = 0; i < numberOfSeeds; i++) {
+
+            let purchase = {
+                buyerId: faker.helpers.randomize(buyersId),
+                sellerId: faker.helpers.randomize(sellersId),
+                productId: faker.helpers.randomize(productsId),
+                quantityId: faker.datatype.number(),
+                subtotal: faker.datatype.float()
+            };
+
+            const purchaseDB = new Purchase(purchase);
+            purchasesList.push(purchaseDB);
+        }
+        collection.insertMany(purchasesList);
+        console.log("Seeding Purchases Complete!");
+        client.close();
+    } catch (err) {
+        console.log(err.stack);
+    }
 }
 
 async function seedReviews(numberOfSeeds) {
+    try {
+        await client.connect();
+        console.log("REVIEWS: Seeding Reviews");
+        const collection = client.db("Bazaar").collection("Reviews");
+        collection.drop();
 
+        let reviewsList = [];
+
+        for (let i = 0; i < numberOfSeeds; i++) {
+            let review = {
+                buyerId: faker.helpers.randomize(buyersId),
+                purchaseId: faker.helpers.randomize(purchasesId),
+                productId: faker.helpers.randomize(productsId),
+                qualify: faker.datatype.number(10),
+                sumary: faker.commerce.productDescription()
+            };
+
+            const reviewDB = new Review(review);
+            reviewsList.push(reviewDB);
+        }
+        collection.insertMany(reviewsList);
+        console.log("Seeding Reviews Complete!");
+        client.close();
+    } catch (err) {
+        console.log(err.stack);
+    }
 }
 
 module.exports = seedDB;
