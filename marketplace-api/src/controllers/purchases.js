@@ -26,6 +26,30 @@ function getPurchase(req, res, next) {
     }
 }
 
+
+function getPurchaseByUser(req, res, next) {
+    let key = ""
+    switch(req.params.role){
+        case "seller": key = "sellerId"
+        break
+        
+        case "buyer": key = "buyerId"
+        break
+
+        default: return res.status(401).send("Bad request. Try again, plesae")
+    }
+
+    if (req.params.id) {
+        const ObjectId = mongoose.Types.ObjectId; 
+        Purchase.find({[`${key}`]: new ObjectId(req.params.id)})
+            .then(purchase => {
+                res.send(purchase);
+            })
+            .catch(next);
+    }
+}
+
+
 function updatePurchase(req, res, next) {
     Purchase.findById(req.params.id)
         .then(purchase => {
@@ -41,8 +65,8 @@ function updatePurchase(req, res, next) {
                 purchase.quantity = newInfo.quantity;
             if (typeof newInfo.subtotal !== 'undefined')
                 purchase.subtotal = newInfo.subtotal;
-            purchase.save().then(updateUser => {
-                res.status(201).json(updateUser.publicData());
+            purchase.save().then(_ => {
+                res.status(200).json({message: `Purchase updated successfully with id: ${req.params.id}`});
             }).catch(next);
         })
         .catch(next);
@@ -59,6 +83,7 @@ function deletePurchase(req, res, next) {
 module.exports = {
     createPurchase,
     getPurchase,
+    getPurchaseByUser,
     updatePurchase,
     deletePurchase
 };
