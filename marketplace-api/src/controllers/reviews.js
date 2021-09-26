@@ -39,8 +39,8 @@ function updateReview(req, res, next) {
         review.qualify = newInfo.qualify;
       if (typeof newInfo.summary !== 'undefined')
         review.summary = newInfo.summary;
-      review.save().then(updateUser => {
-        res.status(201).json(updateUser.publicData());
+      review.save().then(_ => {
+        res.status(200).json({message: `Review updated successfully with id: ${req.params.id}`});
       }).catch(next);
     })
     .catch(next);
