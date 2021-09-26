@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('../views/index.hbs');
+    res.send('it\'s alive');
 });
 
 router.use("/users", require("./users"));

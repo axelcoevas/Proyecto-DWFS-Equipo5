@@ -1,16 +1,15 @@
 //Requerimientos
 const express = require('express');
 const app = express();
-const path = require('path');
-const MONGO_URI = process.env.MONGODB_URI;
+const MONGO_URI = process.env.MONGO_URI;
 const PORT = process.env.PORT;
 //  Mongoose
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  MONGO_URI,
-  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
-)
+    MONGO_URI,
+    { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
+);
 
 mongoose.set('debug', true);
 
@@ -34,10 +33,10 @@ app.use("/api/v1", require("./routes"));
 
 //  Start the server
 app.listen(PORT, () => {
-  console.log("Server listening on port", PORT);
+    console.log("Server listening on port", PORT);
 });
 
 // SEED
 
-const seed = require("../fakeseed.js")
-//seed()
+const seed = require("../fakeseed.js");
+// seed();

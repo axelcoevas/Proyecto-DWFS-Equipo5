@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const {
-  signup,
-  login,
-  getUsers,
-  updateUser,
-  deleteUser
+    signup,
+    login,
+    getUsers,
+    updateUser,
+    deleteUser
 } = require('../controllers/users');
 
 const auth = require('./auth');
