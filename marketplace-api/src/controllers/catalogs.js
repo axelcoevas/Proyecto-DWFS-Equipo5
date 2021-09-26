@@ -12,7 +12,8 @@ function createCatalog(req, res, next) {
 
 function getCatalog(req, res, next) {
   if (req.params.id) {
-    Catalog.findById(req.params.id)
+    const ObjectId = mongoose.Types.ObjectId; 
+    Catalog.find({userId: new ObjectId(req.params.id)})
       .then(catalog => {
         res.send(catalog);
       })
@@ -35,8 +36,8 @@ function updateCatalog(req, res, next) {
         catalog.userId = nuevaInfo.userId;
       if (typeof nuevaInfo.productId !== 'undefined')
         catalog.productId = nuevaInfo.productId;
-      catalog.save().then(updateUser => {
-        res.status(201).json(updateUser.publicData());
+      catalog.save().then(_ => {
+        res.status(200).json({message: `Catalog updated successfully with id: ${req.params.id}`});
       }).catch(next);
     })
     .catch(next);
