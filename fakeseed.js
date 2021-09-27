@@ -28,8 +28,8 @@ async function seedDB() {
     // await seedPurchases(numberOfSeeds);
     // await seedCatalogs(numberOfSeeds);
 
-    // purchasesId = await Purchase.find({}, { _id: 1 });
-    // await seedReviews(numberOfSeeds);
+    purchasesId = await Purchase.find({}, { _id: 1 });
+    await seedReviews(numberOfSeeds);
 
     console.log("Sending Process Done!");
 }
