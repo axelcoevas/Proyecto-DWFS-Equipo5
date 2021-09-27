@@ -1,17 +1,19 @@
 const router = require('express').Router();
 
 const {
-  createReview,
-  getReview,
-  updateReview,
-  deleteReview
+    createReview,
+    getReview,
+    updateReview,
+    deleteReview
 } = require('../controllers/reviews');
 
-router.get('/', getReview);
-router.get('/:id', getReview);
-router.post('/', createReview);
-router.put('/:id', updateReview);
-router.delete('/:id', deleteReview);
+const auth = require('./auth');
+
+router.get('/', auth.required, getReview);
+router.get('/:id', auth.required, getReview);
+router.post('/', auth.required, createReview);
+router.put('/:id', auth.required, updateReview);
+router.delete('/:id', auth.required, deleteReview);
 
 module.exports = router;
 

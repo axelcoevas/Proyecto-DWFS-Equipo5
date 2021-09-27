@@ -1,19 +1,21 @@
 const router = require('express').Router();
 
 const {
-  createPurchase,
-  getPurchase,
-  getPurchaseByUser,
-  updatePurchase,
-  deletePurchase
+    createPurchase,
+    getPurchase,
+    getPurchaseByUser,
+    updatePurchase,
+    deletePurchase
 } = require('../controllers/purchases');
 
-router.get('/', getPurchase);
-router.get('/:id', getPurchase);
-router.get('/:role/:id', getPurchaseByUser);
-router.post('/', createPurchase);
-router.put('/:id', updatePurchase);
-router.delete('/:id', deletePurchase);
+const auth = require('./auth');
+
+router.get('/', auth.required, getPurchase);
+router.get('/:id', auth.required, getPurchase);
+router.get('/:role/:id', auth.required, getPurchaseByUser);
+router.post('/', auth.required, createPurchase);
+router.put('/:id', auth.required, updatePurchase);
+router.delete('/:id', auth.required, deletePurchase);
 
 module.exports = router;
 
