@@ -1,0 +1,760 @@
+
+swagger: "2.0"
+info:
+  description: "API made with love from BEDU by Team #8 . You can find out more about our project at [the following link](https://github.com/axelcoevas/Proyecto-DWFS-Equipo8)"
+  version: "1.0.0"
+  title: "BAZAAR API"
+basePath: "/bazaar-api-bedu.herokuapp.com/api/v1"
+
+schemes:
+- "https"
+- "http"
+
+paths:
+  #Products
+  /products:
+    get:
+      tags:
+      - "Product"
+      security:
+      - bearer: []
+      summary: "Use to request all products"
+      responses:
+        "200":
+          description: "Everything works good!"
+        "401":
+          description: "Authorization error"
+          
+    post:
+      tags:
+      - "Product"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to create a product"
+      
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Product"
+          
+      responses:
+        "200":
+          description: "Product created"
+        "500":
+          description: "Request malformed"
+      
+    put:
+      tags:
+      - "Product"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to update a certain product"
+      
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Product"
+          
+      responses:
+        "200":
+          description: "Product updated"
+        "401":
+          description: "Authorization error"
+        "500":
+          description: "Request malformed"
+          
+  /products/{productId}:
+    get:
+      tags:
+      - "Product"
+      security:
+      - bearer: []
+      summary: "Use to request a certain product"
+      parameters:
+      - name: "productId"
+        in: "path"
+        description: "Product id to get"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Everything works good!"
+        "401":
+          description: "Authorization error"
+          
+    delete:
+      tags:
+      - "Product"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to delete a certain product"
+      
+      parameters:
+      - name: "productId"
+        in: "path"
+        description: "Product id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+        
+      responses:
+        "200":
+          description: "Product deleted"
+        "401":
+          description: "Authorization error"
+    
+  #Reviews
+  /reviews:
+    get:
+      tags:
+      - "Review"
+      security:
+      - bearer: []
+      summary: "Use to request all reviews made by userId type client"
+      responses:
+        "200":
+          description: "Everything works good!"
+        "401":
+          description: "Authorization error"
+          
+    post:
+      tags:
+      - "Review"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to create a review"
+      
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Review"
+          
+      responses:
+        "200":
+          description: "Review created"
+        "500":
+          description: "Request malformed"
+      
+    put:
+      tags:
+      - "Review"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to update a certain review"
+      
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Review"
+          
+      responses:
+        "200":
+          description: "Review updated successfully"
+        "401":
+          description: "Authorization error"
+        "500":
+          description: "Request malformed"
+          
+  /reviews/{reviewId}:
+    get:
+      tags:
+      - "Review"
+      security:
+      - bearer: []
+      summary: "Use to request a certain review"
+      parameters:
+      - name: "reviewId"
+        in: "path"
+        description: "Review id to get"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Everything works good!"
+        "401":
+          description: "Authorization error"
+          
+    delete:
+      tags:
+      - "Review"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to delete a certain review"
+      
+      parameters:
+      - name: "reviewId"
+        in: "path"
+        description: "Review id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+        
+      responses:
+        "200":
+          description: "Review deleted"
+        "401":
+          description: "Authorization error"
+  
+  #Catalog
+  /catalogs:
+    get:
+      tags:
+      - "Catalog"
+      security:
+      - bearer: []
+      summary: "Use to request all products related to the catalog by userId"
+      responses:
+        "200":
+          description: "Everything works good!"
+        "401":
+          description: "Authorization error"
+          
+    post:
+      tags:
+      - "Catalog"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to create a catalog"
+      
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Catalog"
+          
+      responses:
+        "200":
+          description: "Catalog created"
+        "500":
+          description: "Request malformed"
+      
+    put:
+      tags:
+      - "Catalog"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to update a certain catalog"
+      
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Catalog"
+          
+      responses:
+        "200":
+          description: "Catalog updated successfully"
+        "401":
+          description: "Authorization error"
+        "500":
+          description: "Request malformed"
+          
+  /catalogs/{catalogId}:
+    get:
+      tags:
+      - "Catalog"
+      security:
+      - bearer: []
+      summary: "Use to request a certain catalog"
+      parameters:
+      - name: "catalogId"
+        in: "path"
+        description: "Catalog id to get"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Everything works good!"
+        "401":
+          description: "Authorization error"
+          
+    delete:
+      tags:
+      - "Catalog"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to delete a certain catalog"
+      
+      parameters:
+      - name: "catalogId"
+        in: "path"
+        description: "Catalog id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+        
+      responses:
+        "200":
+          description: "Catalog deleted"
+        "401":
+          description: "Authorization error"
+  
+  #User
+  /users:
+    get:
+      tags:
+      - "User"
+      security:
+      - bearer: []
+      summary: "Use to request all users"
+      responses:
+        "200":
+          description: "Everything works good!"
+        "401":
+          description: "Authorization error"
+          
+    post:
+      tags:
+      - "User"
+      summary: "Use to create a user"
+      
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+          
+      responses:
+        "200":
+          description: "User created"
+        "500":
+          description: "Request malformed"
+      
+    put:
+      tags:
+      - "User"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to update a certain user"
+      
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+          
+      responses:
+        "200":
+          description: "User updated"
+        "401":
+          description: "Authorization error"
+        "500":
+          description: "Request malformed"
+          
+  /users/{userId}:
+    delete:
+      tags:
+      - "User"
+      
+      security:
+      - bearer: []
+      
+      summary: "Use to delete a certain user"
+      
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "User id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+        
+      responses:
+        "200":
+          description: "User deleted"
+        "401":
+          description: "Authorization error"
+    
+  /users/login:
+    post:
+      tags:
+      - "User"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "body"
+        in: "body"
+        description: "The user name for login"
+        required: true
+        schema:
+          $ref: "#/definitions/Login"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/LoggedUser"
+        "422":
+          description: "Invalid username/password supplied"
+    
+  #Purchase
+  /purchases:
+    get:
+      tags:
+      - "Purchase"
+      security:
+      - bearer: []
+      summary: "Use to request all purchases"
+      responses:
+        "200":
+          description: "Everything works good!"
+        "401":
+          description: "Authorization error"
+          
+    post:
+      tags:
+      - "Purchase"
+      
+      security:
+      - bearer: []
+      summary: "Use to create a purchase"
+      
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Purchase"
+          
+      responses:
+        "200":
+          description: "Purchase created"
+        "500":
+          description: "Request malformed"
+      
+  /purchases/{purchaseId}:
+  
+     get:
+      tags:
+      - "Purchase"
+      
+      security:
+      - bearer: []
+      
+      summary: "get purchase by id"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "purchaseId"
+        in: "path"
+        description: "purchase id that need to search"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Purchase"
+      responses:
+          "200":
+            description: "Get a certain purchase"
+          "401":
+            description: "Authorization error"
+          "500":
+            description: "Request malformed" 
+            
+     put:
+      tags:
+      - "Purchase"
+      
+      security:
+      - bearer: []
+      
+      summary: "Updated purchase"
+      operationId: "updateUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "purchaseId"
+        in: "path"
+        description: "purchase id that need to be updated"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Updated user object"
+        required: true
+        schema:
+          $ref: "#/definitions/Purchase"
+      responses:
+          "200":
+            description: "Purchase updated"
+          "401":
+            description: "Authorization error"
+          "500":
+            description: "Request malformed"
+            
+     delete:
+        tags:
+        - "Purchase"
+       
+        security:
+        - bearer: []
+      
+        summary: "Use to delete a certain purchase"
+        operationId: "deleteUser"
+        
+        produces:
+        - "application/xml"
+        - "application/json"
+        
+        parameters:
+        - name: "purchaseId"
+          in: "path"
+          required: true
+          type: "string"
+          
+        responses:
+          "200":
+            description: "Purchase deleted"
+          "401":
+            description: "Authorization error"
+            
+  /purchases/{role}/{purchaseId}:
+     get:
+      tags:
+      - "Purchase"
+      
+      security:
+      - bearer: []
+      
+      summary: "Get purchases by role"
+      produces:
+      - "application/xml"
+      - "application/json"
+      
+      parameters:
+      - name: "role"
+        in: "path"
+        description: "role that will be used to search"
+        required: true
+        type: "string"
+        
+      - name: "purchaseId"
+        in: "path"
+        description: "id that will be used to search"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Get purchse object"
+        required: true
+        schema:
+          $ref: "#/definitions/Purchase"
+      responses:
+          "200":
+            description: "Purchases per role"
+          "401":
+            description: "Authorization error"
+          "500":
+            description: "Request malformed"
+            
+  
+securityDefinitions:
+  bearer:
+    type: apiKey
+    name: Authorization
+    in: header  
+    
+ 
+definitions:
+  Product:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        example: "Botas de trabajo"
+      image:
+        type: "string"
+        example: "url de pagina de botas de trabajo"
+      price:
+        type: "number" 
+        example: "100"
+      quantity:
+        type: "number"
+        example: "2"
+
+  Catalog:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      userId:
+        type: "integer"
+        format: "int64"
+      productId:
+        type: "integer"
+        format: "int64"
+        
+  Review:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      userId:
+        type: "integer"
+        format: "int64"
+      purchaseId:
+        type: "integer"
+        format: "int64"
+      productId:
+        type: "integer"
+        format: "int64"
+      qualify:
+        type: "string"
+        enum:
+          - "1"
+          - "2"
+          - "3"
+          - "4"
+          - "5"
+      Summary:
+        type: "string"
+        example: "Producto de calidad y entregado en tiempo"
+        
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+        example: "its7ony"
+      firstname:
+        type: "string"
+        example: "Antonio"
+      lastname:
+        type: "string" 
+        example: "Labra"
+      email:
+        type: "string"
+        example: "labrantonio@gmail.com"
+      password:
+        type: "string"
+        example: "helloworld"
+      type:
+        type: "string"
+        description: "set User role"
+        enum:
+        - "seller"
+        - "buyer"
+        
+        example: "seller"
+        
+      address:
+        type: "string"
+        example: "Laguna Perdigon 229"
+        
+      creditCardInfo:
+        description: "16 digits key"
+        example: "5432756399653948"
+        type: "string"
+      phoneNumber:
+        description: "10 digits number"
+        example: "4773124567"
+        type: "string"
+        
+    xml:
+      name: "User"
+  
+  Login:
+   type: "object"
+   properties:
+    email:
+      type: "string"
+      example: "Marcelina.Bashirian@hotmail.com"
+      
+    password:
+      type: "string"
+      example: "holamundo"
+      
+  
+  LoggedUser:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+        example: "marcelina8"
+      email:
+        type: "string"
+        example: "Marcelina.Bashirian@hotmail.com"
+      
+      token:
+        type: "string"
+        example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTBlOWRjMmI2NGNjMGI1MTQ4NjIzOSIsInVzZXJuYW1lIjoibWFyY2VsaW5hOCIsImV4cCI6MTYzNzg4Nzg2OCwiaWF0IjoxNjMyNzAwMjY4fQ.e631XWkdjO6cE9qi2GE7WFXUv5xPbEWFXZllDmQXs2M"
+  
+  Purchase:
+    type: "object"
+    properties:
+      buyerId: 
+       type: "string"
+       example: "this.buyerId"
+      sellerId:
+        type: "string"
+        example: "this.sellerId"
+      
+      productId: 
+        type: "string"
+        example: "this.productId"
+        
+      reviewId: 
+        type: "string"
+        example: "this.reviewId"
+        
+      quantity: 
+        type: "number"
+        example: 1
+        
+      subtotal:
+        type: "number"
+        example: 1063.35
+
+
+ 
+    
