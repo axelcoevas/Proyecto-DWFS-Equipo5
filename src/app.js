@@ -38,5 +38,8 @@ app.listen(PORT, () => {
 
 // SEED
 
-const seed = require("../fakeseed.js");
-//seed();
+if (process.env.NODE_ENV === 'development') {
+    const seed = require("../fakeseed.js");
+    seed();
+}
+
