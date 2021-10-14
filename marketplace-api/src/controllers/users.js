@@ -10,7 +10,7 @@ function signup(req, res, next) {
     delete body.password;
     const user = new User(body);
 
-    user.createPassword(password);
+    user.createPassword('holamundo');
     user.save()
         .then(user => {
             return res.status(200).json(user.toAuthJSON());
