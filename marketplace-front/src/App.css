@@ -1,13 +1,19 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .right {
   text-align: right;
 }
 
-.product-title, .price {
-  font-size:32px;
+.product-name, .price, .seller {
+  /* font-size:32px; */
   font-weight: bold;
 }
 
-.product-title {color: #bf3a3a;}
+.product-name {color: #bf3a3a;}
 .price {color: #3F3F3F}
 
 .price::before {
