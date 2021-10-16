@@ -1,5 +1,29 @@
+import React from 'react';
+// import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+
+import Carousel from './Carousel';
+
 const Home = () => {
-    return <h1>Home</h1>
-}
+	
+
+	return (
+		<Container sx={{backgroundColor: '#E5E5E5', margin: 0}} maxWidth="xl">
+			<Box
+				component="section"
+				sx={{
+					displaytextAlign: 'center',
+					padding: '20px',
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}>
+				<Carousel />
+			</Box>
+			{/* <ItemsList/> */}
+		</Container>
+	);
+};
 
 export default Home;
