@@ -3,7 +3,7 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
-import Carousel from './Carousel';
+import Carousel from './components/Carousel';
 
 const Home = () => {
 	
