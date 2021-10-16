@@ -38,6 +38,12 @@ const Footer = () => {
 									Sign Up
 								</Link>
 							</Box>
+							<Box>
+                                {/* En caso de estar logeado se mostrará */}
+								<Link href="/" color="inherit">
+									Log Out
+								</Link>
+							</Box>
 						</Grid>
 						<Grid item xs={12} sm={4}>
 							<Box textAlign="center">
