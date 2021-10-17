@@ -1,5 +1,12 @@
+import React from 'react';
+import ProductGrid from './components/ProductGrid';
+
 const Home = () => {
-    return <h1>Home</h1>
-}
+    return (
+        <div className="Home">
+            <ProductGrid />
+        </div>
+    );
+};
 
 export default Home;
