@@ -8,7 +8,7 @@ import ProductGrid from './components/ProductGrid';
 const Home = () => {
 
     return (
-        <Container sx={{ backgroundColor: '#E5E5E5', margin: 0 }} maxWidth="xl">
+        <Container sx={{ backgroundColor: '#E5E5E5', margin: 0 }} maxWidth="xlg">
             <Box
                 component="section"
                 sx={{

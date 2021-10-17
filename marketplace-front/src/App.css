@@ -8,13 +8,19 @@
   text-align: right;
 }
 
-.product-name, .price, .seller {
+.product-name,
+.price,
+.seller {
   /* font-size:32px; */
   font-weight: bold;
 }
 
-.product-name {color: #bf3a3a;}
-.price {color: #3F3F3F}
+.product-name {
+  color: #bf3a3a;
+}
+.price {
+  color: #3f3f3f;
+}
 
 .price::before {
   content: "$";

@@ -10,6 +10,7 @@ import Footer from './screens/Footer';
 
 import Home from './screens/Home';
 import Login from './screens/Login';
+import SignIn from './screens/SignIn';
 import Product from './screens/Product';
 import Profile from './screens/Profile/components/Profile';
 
@@ -21,6 +22,7 @@ const App = () => {
         <Switch>
           <Route path='/' exact component={() => <Home />} />
           <Route path='/login' exact component={() => <Login />} />
+          <Route path='/SignIn' exact component={() => <SignIn />} />
           <Route path='/profile' exact component={() => <Profile urlImage={"https://pbs.twimg.com/profile_images/1086332409677660160/Lorn8QZ2.jpg"} userName={"Antonio Labra"}/>} />
           <Route path='/product' exact component={() => <Product />} />
         </Switch>
