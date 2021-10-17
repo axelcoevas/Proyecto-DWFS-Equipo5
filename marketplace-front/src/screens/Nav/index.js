@@ -127,7 +127,7 @@ const Nav = () => {
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" >
-          <Toolbar>
+          <Toolbar sx ={{ backgroundColor: '#EBEBEB', color: '#3F3F3F'}}>
             <Box sx={{display: 'flex', alignItems: 'center', flexGrow: 1, flexDirection: 'row'}}>
                 <IconButton
                 size="large"
@@ -156,10 +156,10 @@ const Nav = () => {
                     </IconButton>
                     <IconButton
                         size="large"
-                        aria-label="show 17 new notifications"
+                        aria-label="show 10 new notifications"
                         color="inherit"
                     >
-                        <Badge badgeContent={17} color="error">
+                        <Badge badgeContent={10} color="error">
                         <NotificationsIcon />
                         </Badge>
                     </IconButton>
@@ -197,6 +197,8 @@ const Nav = () => {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                fullWidth
+                sx={{border: 1, borderRadius: 1, borderColor: 'rgba(63, 63, 63, 0.5)'}}
               />
             </Search>
           </Toolbar>

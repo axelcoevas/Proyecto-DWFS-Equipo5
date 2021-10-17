@@ -8,19 +8,18 @@ const Footer = () => {
 	return (
 		<footer>
 			<Box
-				px={{ xs: 3, sm: 10 }}
-				py={{ xs: 5, sm: 10 }}
-				bgcolor="text.secondary"
-				color="white">
+				px={{ xs: 1, sm: 2 }}
+				py={{ xs: 1, sm: 2 }}
+				sx={{backgroundColor: '#3F3F3F', color: '#EBEBEB'}}>
 				<Container maxWidth="lg">
 					<Grid container spacing={5}>
 						<Grid item xs={12} sm={3}>
 							<Box borderBottom={1}>
-								<Typography variant="h5" align="center">
+								<Typography variant="h6" align="center">
 									Important Links
 								</Typography>
 							</Box>
-							<Typography variant="h6">
+							<Typography variant="h7">
 								<Box>
 									<Link
 										href="/"
@@ -49,16 +48,16 @@ const Footer = () => {
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<Box textAlign="center">
-								<Typography variant="h4">
+								<Typography variant="h5">
 									MKT PLACE &reg; {new Date().getFullYear()}
 								</Typography>
 							</Box>
 						</Grid>
 						<Grid item xs={12} sm={3}>
 							<Box borderBottom={1}>
-								<Typography variant="h5" align="center">Others</Typography>
+								<Typography variant="h6" align="center">Others</Typography>
 							</Box>
-							<Typography variant="h6">
+							<Typography variant="h7">
 								<Box>
 									<Link
 										href="/"
@@ -80,8 +79,8 @@ const Footer = () => {
 					</Grid>
 				</Container>
 			</Box>
-            <Container maxWidth="xl" sx={{backgroundColor: '#000', color: '#FFF'}}>
-                <Typography variant="h5" align="center">
+            <Container maxWidth="xlg" sx={{backgroundColor: '#000', color: '#EBEBEB'}}>
+                <Typography variant="h6" align="center">
                 {/* Made with ❤ by Team 5.     A elegir*/}
                 Made with &lt;3 by Team 5.
                 </Typography>

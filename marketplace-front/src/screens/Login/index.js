@@ -10,7 +10,7 @@ const Login = () => {
      const style = makeStyles(theme => ({
 
         login: {
-            height: 800,
+            height: 760,
             backgroundImage: `url(${BgImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
