@@ -8,7 +8,7 @@ import ProductGrid from './components/ProductGrid';
 const Home = () => {
 
     return (
-        <Container sx={{ backgroundColor: '#E5E5E5', margin: 0 }} maxWidth="xl">
+        <div className="HomeContaner">
             <Box
                 component="section"
                 sx={{
@@ -21,7 +21,7 @@ const Home = () => {
                 <Carousel />
             </Box>
             <ProductGrid />
-        </Container>
+        </div>
     );
 };
 

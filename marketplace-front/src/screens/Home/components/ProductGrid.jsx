@@ -15,7 +15,7 @@ const product = {
     seller_image: "https://pbs.twimg.com/profile_images/1086332409677660160/Lorn8QZ2.jpg",
 };
 
-const products = [product, product, product, product, product];
+const products = [product, product, product, product, product, product];
 
 const ProductGrid = () => {
     const classes = makeStyles(theme => ({
