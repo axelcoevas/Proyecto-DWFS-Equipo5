@@ -1,4 +1,4 @@
-# Proyecto-DWFS-Equipo8
+# Proyecto-DWFS-Equipo5
 
 # Bazaar!
 **Bazaar!** es una plataforma de marketplace que provee servicios centralizados para la compra-venta de artículos, colaborando con los usuarios creando un ambiente de valor para llevar a cabo trueques y compra-venta de forma segura y responsable.
@@ -14,7 +14,7 @@
 - Chat de comunicación de forma interna, sólo se compartirán los datos de contacto.
 - Servicio externo ó interno de sistema de pago.
 
-## Teammates 8
+## Teammates 5
 
 Antonio Labra Guerrero  | Ian Axel Cuevas Olvera  | David Dorantes Torres  | Luis Alonso Marañón Solorio  | Brayan Eleazar Cabrera Lejona  |
 ----------------------- | ----------------------- | ----------------------- |  ----------------------- |  ----------------------- |
