@@ -18,7 +18,7 @@ const ProductPreview = ({ product }) => {
             textAlign: 'right'
         },
         ProductImage: {
-            maxHeight: '14vh'
+            maxHeight: '23vh'
         },
         ImageContainer: {
             padding: '1em'

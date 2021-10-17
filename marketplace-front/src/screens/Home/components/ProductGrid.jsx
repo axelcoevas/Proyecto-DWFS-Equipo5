@@ -3,6 +3,7 @@ import { makeStyles } from '@mui/styles';
 import { Grid } from '@mui/material';
 import ProductPreview from './ProductPreview';
 import { Box } from '@mui/system';
+import Link from '@mui/material/Link';
 
 const product = {
     id: 100000134,
@@ -15,23 +16,29 @@ const product = {
     seller_image: "https://pbs.twimg.com/profile_images/1086332409677660160/Lorn8QZ2.jpg",
 };
 
-const products = [product, product, product, product, product, product];
+const products = [product, product, product, product, product, product, product, product];
 
 const ProductGrid = () => {
     const classes = makeStyles(theme => ({
         ProductGrid: {
             padding: '1em',
-            display: 'flex'
+            paddingBottom: '2em',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            textDecoration: 'none'
         },
         ProductPreview: {
             width: 'auto',
-            flex: '1'
         }
     }))();
 
     return (
         <div className={classes.ProductGrid}>
-            {products.map((product) => (<ProductPreview className={classes.ProductPreview} product={product} />))}
+            {products.map((product) => (
+                <Link href='/product'>
+                    <ProductPreview className={classes.ProductPreview} product={product} />
+                </Link>
+            ))}
         </div>
     );
 };
