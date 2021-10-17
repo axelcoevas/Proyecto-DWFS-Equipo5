@@ -14,47 +14,78 @@ const Footer = () => {
 				color="white">
 				<Container maxWidth="lg">
 					<Grid container spacing={5}>
-						<Grid item xs={12} sm={4}>
+						<Grid item xs={12} sm={3}>
 							<Box borderBottom={1}>
-								<Typography variant="h5">About</Typography>
+								<Typography variant="h5" align="center">
+									Important Links
+								</Typography>
 							</Box>
-							<Box>
-								<Link href="/" color="inherit">
-									Repository
-								</Link>
-							</Box>
+							<Typography variant="h6">
+								<Box>
+									<Link
+										href="/"
+										color="inherit"
+										underline="none">
+										Home
+									</Link>
+								</Box>
+								<Box>
+									<Link
+										href="/"
+										color="inherit"
+										underline="none">
+										Privacy
+									</Link>
+								</Box>
+								<Box>
+									<Link
+										href="/"
+										color="inherit"
+										underline="none">
+										Terms and conditions
+									</Link>
+								</Box>
+							</Typography>
 						</Grid>
-						<Grid item xs={12} sm={4}>
-							<Box borderBottom={1}>
-								<Typography variant="h5">Account</Typography>
-							</Box>
-							<Box>
-								<Link href="/" color="inherit">
-									Sign In
-								</Link>
-							</Box>
-							<Box>
-								<Link href="/" color="inherit">
-									Sign Up
-								</Link>
-							</Box>
-							<Box>
-                                {/* En caso de estar logeado se mostrará */}
-								<Link href="/" color="inherit">
-									Log Out
-								</Link>
-							</Box>
-						</Grid>
-						<Grid item xs={12} sm={4}>
+						<Grid item xs={12} sm={6}>
 							<Box textAlign="center">
-								<Typography variant="body1">
+								<Typography variant="h4">
 									MKT PLACE &reg; {new Date().getFullYear()}
 								</Typography>
 							</Box>
 						</Grid>
+						<Grid item xs={12} sm={3}>
+							<Box borderBottom={1}>
+								<Typography variant="h5" align="center">Others</Typography>
+							</Box>
+							<Typography variant="h6">
+								<Box>
+									<Link
+										href="/"
+										color="inherit"
+										underline="none">
+										Contact
+									</Link>
+								</Box>
+								<Box>
+									<Link
+										href="/"
+										color="inherit"
+										underline="none">
+										FAQs
+									</Link>
+								</Box>
+							</Typography>
+						</Grid>
 					</Grid>
 				</Container>
 			</Box>
+            <Container maxWidth="xl" sx={{backgroundColor: '#000', color: '#FFF'}}>
+                <Typography variant="h5" align="center">
+                {/* Made with ❤ by Team 5.     A elegir*/}
+                Made with &lt;3 by Team 5.
+                </Typography>
+            </Container>
 		</footer>
 	);
 };
