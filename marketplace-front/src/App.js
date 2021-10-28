@@ -23,7 +23,7 @@ const App = () => {
           <Route path='/' exact component={() => <Home />} />
           <Route path='/login' exact component={() => <Login />} />
           <Route path='/SignIn' exact component={() => <SignIn />} />
-          <Route path='/profile' exact component={() => <Profile urlImage={"https://pbs.twimg.com/profile_images/1086332409677660160/Lorn8QZ2.jpg"} userName={"Antonio Labra"}/>} />
+          <Route path='/profile' exact component={() => <Profile />} />
           <Route path='/product' exact component={() => <Product />} />
         </Switch>
         <Footer />
