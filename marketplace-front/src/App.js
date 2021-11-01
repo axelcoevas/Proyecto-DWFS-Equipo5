@@ -13,6 +13,7 @@ import Login from './screens/Login';
 import SignIn from './screens/SignIn';
 import Product from './screens/Product';
 import Profile from './screens/Profile/components/Profile';
+import NotFound from './screens/NotFound';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/SignIn' exact component={() => <SignIn />} />
           <Route path='/profile' exact component={() => <Profile />} />
           <Route path='/product' exact component={() => <Product />} />
+          <Route component={() => <NotFound />} />
         </Switch>
         <Footer />
       </Router>

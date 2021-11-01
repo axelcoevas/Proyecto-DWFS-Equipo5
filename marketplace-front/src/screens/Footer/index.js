@@ -30,7 +30,7 @@ const Footer = () => {
 								</Box>
 								<Box>
 									<Link
-										href="/"
+										href="/privacy"
 										color="inherit"
 										underline="none">
 										Privacy
@@ -38,7 +38,7 @@ const Footer = () => {
 								</Box>
 								<Box>
 									<Link
-										href="/"
+										href="/terms"
 										color="inherit"
 										underline="none">
 										Terms and conditions
@@ -60,7 +60,7 @@ const Footer = () => {
 							<Typography variant="h7">
 								<Box>
 									<Link
-										href="/"
+										href="/contact"
 										color="inherit"
 										underline="none">
 										Contact
@@ -68,7 +68,7 @@ const Footer = () => {
 								</Box>
 								<Box>
 									<Link
-										href="/"
+										href="/faqs"
 										color="inherit"
 										underline="none">
 										FAQs

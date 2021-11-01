@@ -6,23 +6,23 @@ import ArrowButton from './ArrowButton';
 const SLIDES_ITEMS = [
     {
         title: 'Imagen 1',
-        image: 'https://www.smarthomesounds.co.uk/wp/wp-content/uploads/2019/09/19-amazon-hd-music-hero-1-1-1280x650.jpg',
+        image: 'https://media.istockphoto.com/photos/shopping-online-concept-parcel-or-paper-cartons-with-a-shopping-cart-picture-id1249219777?b=1&k=20&m=1249219777&s=170667a&w=0&h=0dXNU-fjD9aOMmrvlppQhJ9gOqnW9dslKFdYLQN9rnk=',
     },
     {
         title: 'Imagen 2',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd053jkCI26wKsgZimKbkhQGjxdhUaHqObf7xhlpBQtxmdpKCk6iUzkXsy0W_XMsrtMl8&usqp=CAU',
+        image: 'https://media.istockphoto.com/photos/flying-shopping-cart-with-shopping-bags-on-a-pink-background-picture-id1292443598?b=1&k=20&m=1292443598&s=170667a&w=0&h=_MM45Mxfq5PXtEEYpuMbMunr3u9YRQK8jgxQTo8UhKY=',
     },
     {
         title: 'Imagen 3',
-        image: 'https://www.7apa.com/wp-content/uploads/2017/08/Web-Banner-MarketPlace-700x360px.jpg',
+        image: 'https://media.istockphoto.com/photos/mature-man-running-online-store-picture-id1281476617?b=1&k=20&m=1281476617&s=170667a&w=0&h=gzcJ_9EIpmpX48hHsh-N2sB9TS_UMrUclhKejsu69uo=',
     },
     {
         title: 'Imagen 4',
-        image: 'https://67degreescdn.co.uk/42/6/15765255325df7dedc05ada_blog-banner.jpg?width=479&height=359&crop=auto',
+        image: 'https://media.istockphoto.com/photos/its-beautiful-product-picture-id1256128117?b=1&k=20&m=1256128117&s=170667a&w=0&h=GhQu3cRN-yE0CsWH4EIuI1_V6pKRkvvwAK6LQg2rbnc=',
     },
     {
         title: 'Imagen 5',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCxqBwhhRX9m4at5jngj3ILQzrhwKoyET30w&usqp=CAU',
+        image: 'https://media.istockphoto.com/photos/retail-shop-clerk-taking-a-mobile-credit-card-payment-on-a-digital-picture-id1145785115?b=1&k=20&m=1145785115&s=170667a&w=0&h=F0xiy3Ee2TD3OFHQtcPLOZaTAE_yRBXlcor5iZJ3goo=',
     },
 ];
 

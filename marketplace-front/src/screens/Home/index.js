@@ -8,7 +8,7 @@ import ProductGrid from './components/ProductGrid';
 const Home = () => {
 
     return (
-        <div className="HomeContaner">
+        <div >
             <Box
                 component="section"
                 sx={{
