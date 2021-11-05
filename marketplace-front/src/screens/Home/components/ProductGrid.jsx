@@ -24,11 +24,12 @@ const ProductGrid = () => {
             padding: '1em',
             paddingBottom: '2em',
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            textDecoration: 'none'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            textDecoration: 'none',
         },
         ProductPreview: {
-            width: 'auto',
+            // width: 'auto',
+            // width: '100%'
         }
     }))();
 
