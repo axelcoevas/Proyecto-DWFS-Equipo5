@@ -8,7 +8,7 @@ import ProductGrid from './components/ProductGrid';
 const Home = () => {
 
     return (
-        <div >
+        <div style={{overflow: 'hidden'}}>
             <Box
                 component="section"
                 sx={{

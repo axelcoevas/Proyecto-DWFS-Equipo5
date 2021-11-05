@@ -2,7 +2,7 @@ import Avatar from '@mui/material/Avatar';
 import Paper from '@mui/material/Paper';
 
 const ProductCard = props => {
-    return <Paper sx={{width: '30%'}}>
+    return <Paper >
         <div style={{padding: 20}}>
             <img src={props.image} style={{width: '100%'}} />
         </div>

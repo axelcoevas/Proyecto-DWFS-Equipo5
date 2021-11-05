@@ -9,17 +9,17 @@ const Footer = () => {
 		<footer>
 			<Box
 				px={{ xs: 1, sm: 2 }}
-				py={{ xs: 1, sm: 2 }}
+				py={{ xs: 1, sm: 5 }}
 				sx={{backgroundColor: '#3F3F3F', color: '#EBEBEB'}}>
 				<Container maxWidth="lg">
 					<Grid container spacing={5}>
 						<Grid item xs={12} sm={3}>
 							<Box borderBottom={1}>
-								<Typography variant="h6" align="center">
+								<Typography variant="h5" align="center">
 									Important Links
 								</Typography>
 							</Box>
-							<Typography variant="h7">
+							<Typography variant="h6" sx={{marginTop:1}}>
 								<Box>
 									<Link
 										href="/"
@@ -55,9 +55,9 @@ const Footer = () => {
 						</Grid>
 						<Grid item xs={12} sm={3}>
 							<Box borderBottom={1}>
-								<Typography variant="h6" align="center">Others</Typography>
+								<Typography variant="h5" align="center">Others</Typography>
 							</Box>
-							<Typography variant="h7">
+							<Typography variant="h6" sx={{marginTop:1}}>
 								<Box>
 									<Link
 										href="/contact"
@@ -79,7 +79,7 @@ const Footer = () => {
 					</Grid>
 				</Container>
 			</Box>
-            <Container maxWidth="xlg" sx={{backgroundColor: '#000', color: '#EBEBEB'}}>
+            <Container maxWidth="xlg" sx={{backgroundColor: '#000', color: '#EBEBEB', padding: 3}}>
                 <Typography variant="h6" align="center">
                 {/* Made with ❤ by Team 5.     A elegir*/}
                 Made with &lt;3 by Team 5.
