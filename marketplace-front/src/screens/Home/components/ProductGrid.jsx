@@ -36,7 +36,7 @@ const ProductGrid = () => {
     return (
         <div className={classes.ProductGrid}>
             {products.map((product) => (
-                <Link href='/product'>
+                <Link href='/product' style={{textDecoration: 'none'}}>
                     <ProductPreview className={classes.ProductPreview} product={product} />
                 </Link>
             ))}

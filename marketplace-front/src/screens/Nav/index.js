@@ -26,6 +26,8 @@ import StyledInputBase from "./components/StyledInputBase";
 //     <Link to='/login'>Login</Link>
 // </div>
 
+import Logo from "../Login/components/logo";
+
 const Nav = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -67,8 +69,30 @@ const Nav = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link
+          to="login"
+          style={{
+            textDecoration: "none",
+            textUnderline: "none",
+            color: "black",
+          }}
+        >
+          Login
+        </Link>
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link
+          to="signin"
+          style={{
+            textDecoration: "none",
+            textUnderline: "none",
+            color: "black",
+          }}
+        >
+          Register
+        </Link>
+      </MenuItem>
     </Menu>
   );
 
@@ -157,7 +181,12 @@ const Nav = () => {
               component="div"
               // sx={{ display: { xs: "none", sm: "block" } }}
             >
-              MKT PLACE
+              {/* MKT PLACE */}
+              <Box>
+                <Link to="/">
+                  <Logo />
+                </Link>
+              </Box>
             </Typography>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
             <Box flex={1} sx={{ margin: 2 }}>
@@ -207,14 +236,14 @@ const Nav = () => {
             </Box>
           </Box>
 
-          <Search>
+          <Search sx={{ flex: 1 }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
-              // fullWidth
+              fullWidth
               sx={{
                 border: 1,
                 borderRadius: 1,
