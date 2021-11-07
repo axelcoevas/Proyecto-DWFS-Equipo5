@@ -93,6 +93,18 @@ const Nav = () => {
           Register
         </Link>
       </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link
+          to="profile"
+          style={{
+            textDecoration: "none",
+            textUnderline: "none",
+            color: "black",
+          }}
+        >
+          Profile
+        </Link>
+      </MenuItem>
     </Menu>
   );
 

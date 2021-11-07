@@ -55,13 +55,13 @@ const LoginForm = () => {
                         alignItems="center" >
                         <Grid item xs>
                         </Grid>
-                        <Grid container xs={8} direction="row" justifyContent="center"
+                        <Grid container item xs={8} direction="row" justifyContent="center"
                                                 alignItems="center">
                             <Grid item>
                                 <Button variant="contained" size={"large"} className={classes.button}>Enter</Button>
                             </Grid>
                         </Grid>
-                        <Grid container direction="column" xs>
+                        <Grid container direction="column" item xs>
                             <Grid item ><Link href="#" underline="hover" className={classes.link}>Forgot password?</Link></Grid>
                             <Grid item ><Link href="#" underline="hover" className={classes.link}>Register Now</Link></Grid>
                         </Grid>
