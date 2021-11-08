@@ -53,7 +53,7 @@ const Product = () => {
         className="product-container"
       >
         <Paper sx={{ padding: "20px" }}>
-          <img style={{ width: "100%" }} src={product.image} lazy />
+          <img style={{ width: "100%" }} src={product.image} lazy="true" />
         </Paper>
         <Box sx={{ flex: 0.8 }}>
           <div style={{ fontSize: 32 }}>
@@ -83,7 +83,7 @@ const Product = () => {
             }}
           >
             <Paper
-              rounded
+              rounded="true"
               className="rating"
               elevation={2}
               style={{
@@ -128,12 +128,13 @@ const Product = () => {
             textDecoration: "none",
           }}
         >
-          {otherProducts.map(({ image, seller_image, name, price }) => (
+          {otherProducts.map(({ image, seller_image, name, price}, index) => (
             <ProductCard
               image={image}
               seller_image={seller_image}
               name={name}
               price={price}
+              key={index}
             />
           ))}
         </Box>
