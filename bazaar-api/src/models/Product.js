@@ -16,7 +16,14 @@ const ProductSchema = new mongoose.Schema({
     name: String,
     image: String,
     price: Number,
-    quantity: Number
+    status: {
+        type: String,
+        enum: ['available', 'processing', 'aparted', 'sold'],
+    },
+    description: { 
+        type: String,
+        maxLength : 50,
+    }
 }, { collection: 'Products', timestamps: true });
 
 ProductSchema.methods.publicData = () => {
@@ -24,7 +31,8 @@ ProductSchema.methods.publicData = () => {
         name: this.name,
         image: this.image,
         price: this.price,
-        quantity: this.quantity
+        status: this.status,
+        description: this.description,
     };
 };
 

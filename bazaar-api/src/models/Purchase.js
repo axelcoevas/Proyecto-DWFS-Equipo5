@@ -19,8 +19,8 @@ const PurchaseSchema = new mongoose.Schema({
     buyerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     sellerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
-    quantity: Number,
-    subtotal: Number
+    dateBuyed: Date,
+    total: Number
 }, { collection: 'Purchases', timestamps: true });
 
 PurchaseSchema.methods.publicData = () => {
@@ -29,8 +29,8 @@ PurchaseSchema.methods.publicData = () => {
         sellerId: this.sellerId,
         productId: this.productId,
         reviewId: this.reviewId,
-        quantity: this.quantity,
-        subtotal: this.subtotal
+        dateBuyed: this.dateBuyed,
+        total: this.total
     };
 };
 
