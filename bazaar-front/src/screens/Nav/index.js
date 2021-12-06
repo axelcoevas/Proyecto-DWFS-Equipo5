@@ -16,6 +16,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Search from "./components/Search";
 import SearchIconWrapper from "./components/SearchIconWrapper";
@@ -160,6 +161,15 @@ const Nav = () => {
     </Menu>
   );
 
+  const [search, setSearch] = useState("");
+  const history = useHistory();
+
+  const searchProducts = () => {
+    if (search.length > 0) {
+      history.push(`/search?q=${search}`);
+    }
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -256,6 +266,15 @@ const Nav = () => {
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
               fullWidth
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  searchProducts();
+                }
+              }}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              value={search}
               sx={{
                 border: 1,
                 borderRadius: 1,

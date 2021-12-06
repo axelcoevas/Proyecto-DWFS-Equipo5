@@ -63,8 +63,8 @@ const LoginForm = () => {
                             </Grid>
                         </Grid>
                         <Grid container direction="column" item xs>
-                            <Grid item ><Link href="#" underline="hover" className={classes.link}>Forgot password?</Link></Grid>
-                            <Grid item ><Link to='/signin' href="#" underline="hover" className={classes.link}>Register Now</Link></Grid>
+                            <Grid item ><Link to='#' underline="hover" className={classes.link}>Forgot password?</Link></Grid>
+                            <Grid item ><Link to='/signin' underline="hover" className={classes.link}>Register Now</Link></Grid>
                         </Grid>
                     </Grid> 
             </Grid>
