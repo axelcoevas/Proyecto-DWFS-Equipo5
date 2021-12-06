@@ -2,6 +2,7 @@ import { Button, Grid, TextField } from "@mui/material"
 import { makeStyles } from '@mui/styles'
 import MuiPhoneNumber from 'material-ui-phone-number';
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 const ProfileForm = () => {
     const style = makeStyles(theme => ({
@@ -24,6 +25,7 @@ const ProfileForm = () => {
     const classes = style()
 
     const [form, setForm] = useState({type: 'buyer', creditCardInfo: 'xxxxxxxxxx'});
+    let history = useHistory();
 
     const sendForm = async () => {
         const response = await fetch(
@@ -37,6 +39,9 @@ const ProfileForm = () => {
             body: JSON.stringify(form) 
         }).then(console.log).catch(console.error);
 
+        
+        history.push('/login');
+        console.log(response);
         // return response.json(); // TODO: handle token and redirect
     }
 
@@ -50,10 +55,10 @@ const ProfileForm = () => {
 
         // Simple verification, change later to a custom UI
         if (form['password'] !== form['confirmPassword']) {
-            alert('Passwords do not match')
+            alert('Passwords do not match');
         } else {
             sendForm();
-            alert('Form submitted')
+            alert('Form submitted');
         }
     }
 
