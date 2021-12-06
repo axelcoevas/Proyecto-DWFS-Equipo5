@@ -1,6 +1,7 @@
 import React from "react";
 import { autocompleteClasses, Button, Grid, TextField } from "@mui/material";
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
+import {Link} from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 
 const LoginForm = () => {
@@ -63,7 +64,7 @@ const LoginForm = () => {
                         </Grid>
                         <Grid container direction="column" item xs>
                             <Grid item ><Link href="#" underline="hover" className={classes.link}>Forgot password?</Link></Grid>
-                            <Grid item ><Link href="#" underline="hover" className={classes.link}>Register Now</Link></Grid>
+                            <Grid item ><Link to='/signin' href="#" underline="hover" className={classes.link}>Register Now</Link></Grid>
                         </Grid>
                     </Grid> 
             </Grid>
