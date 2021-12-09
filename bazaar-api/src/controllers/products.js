@@ -45,6 +45,29 @@ function getProductByName(req, res, next) {
   }
 }
 
+function getProductDistinctByNumber(req, res, next) {
+  if (req.params.limit) {
+    Product.find({
+      status: 'available',
+    })
+      .distinct({ name })
+      .limit(req.params.limit)
+      .then(products => {
+        res.send(products);
+      })
+      .catch(next);
+  } else {
+    Product.find({
+      status: 'available',
+    })
+      .distinct({ name })
+      .then(products => {
+        res.send(products);
+      })
+      .catch(next);
+  }
+}
+
 function updateProduct(req, res, next) {
   Product.findById(req.params.id)
     .then(product => {
@@ -77,6 +100,7 @@ module.exports = {
   createProduct,
   getProduct,
   getProductByName,
+  getProductDistinctByNumber,
   updateProduct,
   deleteProduct
 };
