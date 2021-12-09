@@ -26,6 +26,25 @@ function getProduct(req, res, next) {
   }
 }
 
+function getProductByName(req, res, next) {
+  if (req.params.name) {
+    Product.find({
+      name: req.params.name,
+      status: 'available',
+    })
+      .then(products => {
+        res.send(products);
+      })
+      .catch(next);
+  } else {
+    Product.find()
+      .then(products => {
+        res.send(products);
+      })
+      .catch(next);
+  }
+}
+
 function updateProduct(req, res, next) {
   Product.findById(req.params.id)
     .then(product => {
@@ -57,6 +76,7 @@ function deleteProduct(req, res, next) {
 module.exports = {
   createProduct,
   getProduct,
+  getProductByName,
   updateProduct,
   deleteProduct
 };
