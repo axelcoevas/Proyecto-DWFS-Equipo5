@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Grid } from '@mui/material';
 import ProductPreview from './ProductPreview';
 import { Box } from '@mui/system';
 import Link from '@mui/material/Link';
+
+import { shuffleArray } from '../../../util';
 
 const product = {
     id: 100000134,
@@ -16,7 +18,7 @@ const product = {
     seller_image: "https://pbs.twimg.com/profile_images/1086332409677660160/Lorn8QZ2.jpg",
 };
 
-const products = [product, product, product, product, product, product, product, product];
+// const products = [product, product, product, product, product, product, product, product];
 
 const ProductGrid = () => {
     const classes = makeStyles(theme => ({
@@ -32,6 +34,14 @@ const ProductGrid = () => {
             // width: '100%'
         }
     }))();
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('http://bazaar-api-bedu.herokuapp.com/api/v1/products')
+            .then(res => res.json())
+            .then(data => setProducts(shuffleArray(data.splice(0, 8))));
+    }, []);
 
     return (
         <div className={classes.ProductGrid}>
