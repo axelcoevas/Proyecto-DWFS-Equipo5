@@ -17,6 +17,8 @@ import {
   Typography,
 } from "@mui/material";
 
+import ProductCard from "../Product/components/ProductCard";
+
 // Custom query hook.
 const useQuery = () => {
   const { search } = useLocation();
@@ -44,32 +46,15 @@ const product = {
 const otherProducts = [product, product, product, product, product];
 
 const SearchResult = ({ product }) => {
+  let { image, name, price, index } = product;
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={product.image}
-          // alt="green iguana"
-        />
-        <CardContent sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography gutterBottom variant="h5" component="div">
-            {product.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.seller}
-          </Typography>
-          <Typography
-            sx={{ alignSelf: "flex-end" }}
-            // variant="body2"
-            // color="text.secondary"
-          >
-            ${product.price}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <ProductCard
+      image={image}
+      // seller_image={seller_image}
+      name={name}
+      price={price}
+      key={index}
+    />
   );
 };
 
@@ -94,21 +79,13 @@ const Search = () => {
   };
 
   return (
-    <Container
-      maxWidth="xl"
-      sx={{
-        display: "flex",
-        // justifyContent: "center",
-        flexDirection: "row",
-        padding: 1,
-      }}
-    >
-      <Box sx={{ flexGrow: 0.3, padding: 2 }}>
+    <Container maxWidth="xl" sx={styles.container}>
+      <Box sx={styles.searchParameters}>
         <h2>Search options</h2>
 
         <Divider />
 
-        <Typography component="legend">Price range</Typography>
+        <Typography component="overline">Price range</Typography>
         <Slider
           getAriaLabel={() => "Price range"}
           value={priceRange}
@@ -117,9 +94,10 @@ const Search = () => {
           step={100}
           onChange={(event, value) => setPriceRange(value)}
           valueLabelDisplay="auto"
+          sx={{ margin: 2 }}
         />
 
-        <Typography component="legend">Seller rating</Typography>
+        <Typography component="overline">Seller rating</Typography>
 
         <Stack>
           {[5, 4, 3, 2, 1].map((rating) => (
@@ -128,13 +106,12 @@ const Search = () => {
         </Stack>
       </Box>
       <Divider orientation="vertical" />
-      <Box sx={{ flexGrow: 0.7, padding: 3 }}>
-        <Box>
+      <Box sx={styles.searchContainer}>
+        <Box sx={styles.searchResults}>
           <h1>Search results for "{query.get("q")}"</h1>
           <Box
             sx={{
               display: "grid",
-              width: "100%",
               gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
               gridGap: 20,
               marginBottom: 20,
@@ -142,11 +119,32 @@ const Search = () => {
           >
             {renderProducts()}
           </Box>
-          <Pagination count={10} />
+          <Pagination count={10} size="large" sx={{ alignSelf: "center" }} />
         </Box>
       </Box>
     </Container>
   );
+};
+
+const styles = {
+  container: {
+    display: "flex",
+    // justifyContent: "center",
+    flexDirection: "row",
+    padding: 1,
+  },
+  searchParameters: {
+    flexGrow: 0.3,
+    padding: 5,
+    margin: 2,
+    borderRight: "1px solid rgba(0, 0, 0, 0.12);",
+    alignSelf: "flex-start",
+  },
+  searchContainer: { flexGrow: 0.7, padding: 3 },
+  searchResults: {
+    display: "flex",
+    flexDirection: "column",
+  },
 };
 
 export default Search;
