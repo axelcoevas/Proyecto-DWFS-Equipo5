@@ -7,26 +7,39 @@ const ProductPreview = ({ product }) => {
     const classes = makeStyles(theme => ({
         ProductPreviewContainer: {
             margin: '1em 1.5em',
-            width: 'auto'
+            width: 'auto',
+            borderRadius: '0.5em',
+            overflow: 'hidden',
+
+            position: 'relative',
         },
         ProductName: {
-            fontSize: '1rem',
-            textAlign: 'right'
+            fontSize: '1.1rem',
+            textAlign: 'right',
+            color: 'white',
+            fontWeight: 'bold',
+            margin: '0.5em',
         },
         ProductPrice: {
-            fontSize: '1.25rem',
-            textAlign: 'right'
+            fontSize: '1.5rem',
+            color: 'white',
+            textAlign: 'right',
+            margin: '0.5em',
         },
         ProductImage: {
             maxHeight: '23vh'
         },
         ImageContainer: {
-            padding: '1em'
+            // padding: '1em',
+            // overflow: 'hidden'
         },
         DescriptionContainer: {
             justifyContent: 'space-between',
-            backgroundColor: '#ffc1bd',
-            padding: '0 1em'
+            background: 'linear-gradient(to top, rgba(0, 0, 0, 1), transparent)',
+            padding: '0.75em 1em 0px 1em',
+
+            position: 'absolute',
+            bottom: 0, left:0, right: 0
         }
     }))();
 
@@ -34,16 +47,14 @@ const ProductPreview = ({ product }) => {
         <Paper className={classes.ProductPreviewContainer}>
             <div className={`center ${classes.ImageContainer}`}>
                 <img className={classes.ProductImage} src={product.image} alt={product.name} />
-            </div>
-
-            <div className={`center ${classes.DescriptionContainer}`}>
-                <Avatar src={product.seller_image} />
-                <div>
-                    <p className={`product-name ${classes.ProductName}`}>{product.name}</p>
-                    <p className={`price ${classes.ProductPrice}`}>{product.price}</p>
+                <div className={`center ${classes.DescriptionContainer}`}>
+                    <Avatar src={product.seller_image}/>
+                    <div>
+                        <p className={`${classes.ProductName}`}>{product.name}</p>
+                        <p className={`price ${classes.ProductPrice}`}>{product.price}</p>
+                    </div>
                 </div>
             </div>
-
         </Paper>
     );
 };
