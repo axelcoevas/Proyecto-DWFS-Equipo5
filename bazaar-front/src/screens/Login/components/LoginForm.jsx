@@ -80,7 +80,6 @@ const LoginForm = () => {
 
     return (
     <>
-        {error && <Callout intent="danger">{error}</Callout>}
         <form onSubmit={formSubmitHandler} className={classes.form}>
 
             <Grid   container
