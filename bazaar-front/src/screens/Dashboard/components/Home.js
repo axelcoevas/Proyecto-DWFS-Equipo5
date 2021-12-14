@@ -22,6 +22,8 @@ import { Divider, Paper, Stack } from "@mui/material";
 import Masonry from "@mui/lab/Masonry";
 import LinkIcon from "@mui/icons-material/Link";
 
+import { ArrowUpward, ArrowDownward } from "@mui/icons-material";
+
 let sampleReviewData = [
   {
     keyword: "helpful",
@@ -53,6 +55,8 @@ for (let i = 0; i < 10; i++) {
     value: Math.floor(Math.random() * 100),
   });
 }
+
+let reversedData = [...sampleData].reverse();
 
 const Chart = (props) => {
   switch (props.type) {
@@ -129,7 +133,7 @@ const Home = () => {
 
       <div style={styles.chartsContainer}>
         <Chart data={sampleData} type="line" title="Daily revenue" />
-        <Chart data={sampleData} type="pie" title="Daily purchases" />
+        <Chart data={reversedData} type="pie" title="Daily purchases" />
         <Chart data={sampleData} type="radar" title="Daily reviews" />
       </div>
 
@@ -158,11 +162,38 @@ const Home = () => {
                       // { backgroundColor: index % 2 == 0 ? "white" : "#444" },
                     }
                   >
-                    {`Order number ${item + 500} just came through!`}{" "}
+                    {`Order number ${item + 500} just came through!`}
                   </p>
                   <a href="#">
                     <LinkIcon />
                   </a>
+                </div>
+              ))}
+            </div>
+          </Paper>
+
+          <Paper sx={{ padding: 1 }} elevation={3}>
+            <h3 style={{ textAlign: "center" }}>Product performance</h3>
+            <Divider />
+            <div style={styles.ordersContainer}>
+              {[1, 2, 3, 4, 5].map((item, index) => (
+                <div
+                  className="center"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <p
+                    style={
+                      styles.orderRow
+                      // { backgroundColor: index % 2 == 0 ? "white" : "#444" },
+                    }
+                  >
+                    {`Product no. ${item + 100} `}{" "}
+                  </p>
+                  {item % 2 == 0 ? (
+                    <ArrowUpward color="success" />
+                  ) : (
+                    <ArrowDownward color="error" />
+                  )}
                 </div>
               ))}
             </div>
