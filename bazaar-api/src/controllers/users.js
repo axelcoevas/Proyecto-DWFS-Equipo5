@@ -89,10 +89,50 @@ function deleteUser(req, res, next) {
         .catch(next);
 }
 
+function getProductsFromCatalog(req,res,next){
+    if(req.body.userId){
+        const ObjectId = mongoose.Types.ObjectId; 
+        User.aggregate([
+            {
+            '$match': {
+                '_id':  ObjectId(req.body.userId)
+            }
+            }, {
+            '$lookup': {
+                'from': 'Catalogs', 
+                'localField': '_id', 
+                'foreignField': 'userId', 
+                'as': 'result'
+            }
+            }, {
+            '$lookup': {
+                'from': 'Products', 
+                'localField': 'result.productId', 
+                'foreignField': '_id', 
+                'as': 'catalog'
+            }
+            }, {
+            '$project': {
+                'catalog': '$catalog', 
+                '_id': 0
+            }
+            }
+        ]).then(userCatalog => {
+            res.status(200).json(userCatalog.shift())
+        }).catch(next);
+    }else{
+        return res.status(404).json({ error: 'This user does not have a catalog yet' });
+    }
+}
+
+  
+
+
 module.exports = {
     signup,
     login,
     getUsers,
     updateUser,
-    deleteUser
+    deleteUser,
+    getProductsFromCatalog
 };
