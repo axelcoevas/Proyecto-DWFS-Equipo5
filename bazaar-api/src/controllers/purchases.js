@@ -80,10 +80,49 @@ function deletePurchase(req, res, next) {
         .catch(next);
 }
 
+function purchaseRating(req,res,next){
+    if(req.body.sellerId){
+        const ObjectId = mongoose.Types.ObjectId; 
+        Purchase.aggregate([
+            [
+                {
+                '$match': {
+                    'sellerId': new ObjectId(req.body.sellerId)
+                }
+                }, {
+                '$lookup': {
+                    'from': 'Reviews', 
+                    'localField': '_id', 
+                    'foreignField': 'purchaseId', 
+                    'as': 'result'
+                }
+                }, {
+                '$project': {
+                    'quantity': '$result.qualify', 
+                    '_id': 0
+                }
+                }, {
+                '$unwind': {
+                    'path': '$quantity'
+                }
+                }
+            ]
+        ]) .then(ratingList => {
+            const sum = ratingList.reduce((a, b) => a + b.quantity, 0)
+            const avg = (sum / ratingList.length) || 0
+            res.status(200).json({"rating": Number(avg).toFixed(1)})
+        })
+        .catch(next);
+    }else{
+        return res.status(404).json({ error: 'This seller does not have rating' });
+    }
+}
+
 module.exports = {
     createPurchase,
     getPurchase,
     getPurchaseByUser,
     updatePurchase,
-    deletePurchase
+    deletePurchase,
+    purchaseRating
 };

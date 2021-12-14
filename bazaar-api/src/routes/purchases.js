@@ -5,11 +5,13 @@ const {
     getPurchase,
     getPurchaseByUser,
     updatePurchase,
-    deletePurchase
+    deletePurchase,
+    purchaseRating
 } = require('../controllers/purchases');
 
 const auth = require('./auth');
 
+router.get('/sellerRating', auth.optional, purchaseRating);
 router.get('/', auth.required, getPurchase);
 router.get('/:id', auth.required, getPurchase);
 router.get('/:role/:id', auth.required, getPurchaseByUser);
