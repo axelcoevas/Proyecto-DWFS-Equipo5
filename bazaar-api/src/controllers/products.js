@@ -29,7 +29,7 @@ function getProduct(req, res, next) {
 function getProductByName(req, res, next) {
   if (req.params.name) {
     Product.find({
-      name: req.params.name,
+      name: `/${req.params.name}/`,
       status: 'available',
     })
       .then(products => {
