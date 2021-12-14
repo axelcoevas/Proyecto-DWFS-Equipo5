@@ -188,7 +188,7 @@ const Nav = () => {
               flexDirection: "row",
             }}
           >
-            <IconButton
+            {/* <IconButton
               size="large"
               edge="start"
               color="inherit"
@@ -196,7 +196,7 @@ const Nav = () => {
               sx={{ m: 2 }}
             >
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
             <Typography
               variant="h4"
               noWrap
@@ -204,46 +204,16 @@ const Nav = () => {
               // sx={{ display: { xs: "none", sm: "block" } }}
             >
               {/* MKT PLACE */}
-              <Box>
+              <Box sx={{ margin: 1, marginLeft: 2 }}>
                 <Link to="/">
                   <Logo />
                 </Link>
               </Box>
             </Typography>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
-            <Box flex={1} sx={{ margin: 2 }}>
-              <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <IconButton
-                  size="large"
-                  aria-label="show 4 new mails"
-                  color="inherit"
-                >
-                  <Badge badgeContent={4} color="error">
-                    <FavoriteBorderIcon />
-                  </Badge>
-                </IconButton>
-                <IconButton
-                  size="large"
-                  aria-label="show 10 new notifications"
-                  color="inherit"
-                >
-                  <Badge badgeContent={10} color="error">
-                    <NotificationsIcon />
-                  </Badge>
-                </IconButton>
-                <IconButton
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  aria-controls={menuId}
-                  aria-haspopup="true"
-                  onClick={handleProfileMenuOpen}
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
-              </Box>
-              {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
+            {/* <Box flex={1} sx={{ margin: 2 }}>
+              
+              <Box sx={{ display: { xs: "flex", md: "none" } }}>
                 <IconButton
                   size="large"
                   aria-label="show more"
@@ -254,8 +224,8 @@ const Nav = () => {
                 >
                   <MoreIcon />
                 </IconButton>
-              </Box> */}
-            </Box>
+              </Box>
+            </Box> */}
           </Box>
 
           <Search sx={{ flex: 1 }}>
@@ -282,6 +252,38 @@ const Nav = () => {
               }}
             />
           </Search>
+
+          <Box sx={{ display: { xs: "none", md: "flex" }, margin: 1 }}>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
+              <Badge badgeContent={4} color="error">
+                <FavoriteBorderIcon />
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-label="show 10 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={10} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
