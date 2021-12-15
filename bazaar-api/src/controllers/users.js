@@ -10,7 +10,7 @@ function signup(req, res, next) {
     delete body.password;
     const user = new User(body);
 
-    user.createPassword('holamundo');
+    user.createPassword(password);
     user.save()
         .then(user => {
             return res.status(200).json(user.toAuthJSON());
@@ -93,30 +93,52 @@ function getProductsFromCatalog(req,res,next){
     if(req.body.userId){
         const ObjectId = mongoose.Types.ObjectId; 
         User.aggregate([
-            {
-            '$match': {
-                '_id':  ObjectId(req.body.userId)
-            }
-            }, {
-            '$lookup': {
-                'from': 'Catalogs', 
-                'localField': '_id', 
-                'foreignField': 'userId', 
-                'as': 'result'
-            }
-            }, {
-            '$lookup': {
-                'from': 'Products', 
-                'localField': 'result.productId', 
-                'foreignField': '_id', 
-                'as': 'catalog'
-            }
-            }, {
-            '$project': {
-                'catalog': '$catalog', 
-                '_id': 0
-            }
-            }
+            [
+                {
+                  '$match': {
+                    '_id': new ObjectId(req.body.userId)
+                  }
+                }, {
+                  '$lookup': {
+                    'from': 'Catalogs', 
+                    'localField': '_id', 
+                    'foreignField': 'userId', 
+                    'as': 'result'
+                  }
+                }, {
+                  '$lookup': {
+                    'from': 'Products', 
+                    'localField': 'result.productId', 
+                    'foreignField': '_id', 
+                    'as': 'catalog'
+                  }
+                }, {
+                  '$project': {
+                    'catalog': '$catalog', 
+                    '_id': 0
+                  }
+                }, {
+                  '$unwind': {
+                    'path': '$catalog'
+                  }
+                }, {
+                  '$match': {
+                    'catalog.status': 'available'
+                  }
+                }, {
+                  '$group': {
+                    '_id': 0, 
+                    'catalog': {
+                      '$push': '$catalog'
+                    }
+                  }
+                }, {
+                  '$project': {
+                    'catalog': '$catalog', 
+                    '_id': 0
+                  }
+                }
+              ]
         ]).then(userCatalog => {
             res.status(200).json(userCatalog.shift())
         }).catch(next);
