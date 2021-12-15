@@ -20,7 +20,7 @@ function getProduct(req, res, next) {
   } else {
     Product.find()
       .then(products => {
-        res.send(products);
+        res.send( products.filter((item) => item.status === 'available'));
       })
       .catch(next);
   }
@@ -28,18 +28,19 @@ function getProduct(req, res, next) {
 
 function getProductByName(req, res, next) {
   if (req.params.name) {
+    console.log(req.params.name)
     Product.find({
-      name: `/${req.params.name}/`,
+      name: {'$regex': req.params.name},
       status: 'available',
     })
       .then(products => {
-        res.send(products);
+        res.send(products.filter((item) => item.status === 'available'));
       })
       .catch(next);
   } else {
     Product.find()
       .then(products => {
-        res.send(products);
+        res.send(products.filter((item) => item.status === 'available'));
       })
       .catch(next);
   }
