@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./screens/Nav";
 import Footer from "./screens/Footer";
 
+import Compra from "./screens/Compra";
 import Dashboard from "./screens/Dashboard";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/product" exact component={() => <Product />} />
           <Route path="/search" exact component={() => <Search />} />
           <Route path="/dashboard" exact component={() => <Dashboard />} />
+          <Route path="/compra" exact component={() => <Compra />} />
           <Route component={() => <NotFound />} />
         </Switch>
         <Footer />

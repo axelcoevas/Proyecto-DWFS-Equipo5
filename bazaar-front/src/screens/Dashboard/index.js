@@ -38,6 +38,7 @@ const Dashboard = () => {
         display: "flex",
         padding: 2,
       }}
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.025)" }}
     >
       <Tabs
         orientation="vertical"
@@ -49,7 +50,7 @@ const Dashboard = () => {
         <Tab label="Home" />
         <Tab label="Catalog" />
         <Tab label="Customers" />
-        <Tab label="Statisics" />
+        <Tab label="Statistics" />
         <Tab label="Account" />
         <Tab label="Settings" />
       </Tabs>
