@@ -1,7 +1,8 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 
 import { FacebookRounded, Instagram, Twitter } from "@mui/icons-material";
@@ -28,7 +29,20 @@ const Footer = () => {
             "Privacy policy",
             "Terms and conditions",
           ].map((text, i) => (
-            <p style={{ fontSize: 18, textAlign: "center" }}>{text}</p>
+            <Link
+              to="#"
+              style={{
+                display: "block",
+                padding: "0.5em",
+                fontSize: 18,
+                textAlign: "center",
+                textDecoration: "none",
+                color: "black",
+              }}
+              key={`${text}-${i}`}
+            >
+              {text}
+            </Link>
           ))}
         </Box>
 

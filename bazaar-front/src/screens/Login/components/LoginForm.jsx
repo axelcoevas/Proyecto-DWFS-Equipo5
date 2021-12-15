@@ -1,23 +1,16 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import { Button, Grid, TextField } from "@mui/material";
 import {Link} from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
-import { UserContext } from "../../../helpers/UserContext";
 
 const LoginForm = () => {
 
-    const [isSubmitting, setIsSubmitting] = useState(false)
-    const [error, setError] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [userContext, setUserContext] = useContext(UserContext)
 
     const formSubmitHandler = e => {
         e.preventDefault()
-        setIsSubmitting(true)
-        setError("")
 
-        const genericErrorMessage = "Algo sucedio mal, intenta nuevamente."
 
         fetch('http://bazaar-api-bedu.herokuapp.com/api/v1/users/login', {
         method: "POST",
@@ -25,27 +18,7 @@ const LoginForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: email, password }),
         })
-        .then(async response => {
-            setIsSubmitting(false)
-            if (!response.ok) {
-            if (response.status === 400) {
-                setError("Por favor informa todos los campos correctamente!")
-            } else if (response.status === 401) {
-                setError("Combinacion de email y password incorrecto.")
-            } else {
-                setError(genericErrorMessage)
-            }
-            } else {
-            const data = await response.json()
-            setUserContext(oldValues => {
-                return { ...oldValues, token: data.token }
-            })
-            }
-        })
-        .catch(error => {
-            setIsSubmitting(false)
-            setError(genericErrorMessage)
-        })
+        
     }
 
     const style = makeStyles(theme => ({
@@ -121,7 +94,6 @@ const LoginForm = () => {
                                     variant="contained" 
                                     size={"large"} 
                                     className={classes.button}
-                                    disabled={isSubmitting}
                                     type="submit"
                                 >
                                     Enter

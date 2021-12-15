@@ -4,6 +4,8 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
+import Home from "./components/Home";
+
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
 
@@ -23,10 +25,10 @@ const TabPanel = (props) => {
   );
 };
 const Dashboard = () => {
-  const [value, setValue] = useState(0);
+  const [currentTab, setCurrentTab] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleTabChange = (event, newValue) => {
+    setCurrentTab(newValue);
   };
 
   return (
@@ -36,42 +38,39 @@ const Dashboard = () => {
         display: "flex",
         padding: 2,
       }}
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.025)" }}
     >
       <Tabs
         orientation="vertical"
         variant="scrollable"
-        value={value}
-        onChange={handleChange}
+        value={currentTab}
+        onChange={handleTabChange}
         sx={{ borderRight: 1, borderColor: "divider" }}
       >
         <Tab label="Home" />
-        <Tab label="Item Two" />
-        <Tab label="Item Three" />
-        <Tab label="Item Four" />
-        <Tab label="Item Five" />
-        <Tab label="Item Six" />
-        <Tab label="Item Seven" />
+        <Tab label="Catalog" />
+        <Tab label="Customers" />
+        <Tab label="Statistics" />
+        <Tab label="Account" />
+        <Tab label="Settings" />
       </Tabs>
-      <TabPanel value={value} index={0}>
-        Home
+      <TabPanel value={currentTab} index={0}>
+        <Home />
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
+      <TabPanel value={currentTab} index={1}>
+        Catalog
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
+      <TabPanel value={currentTab} index={2}>
+        Customers
       </TabPanel>
-      <TabPanel value={value} index={3}>
-        Item Four
+      <TabPanel value={currentTab} index={3}>
+        Statistics
       </TabPanel>
-      <TabPanel value={value} index={4}>
-        Item Five
+      <TabPanel value={currentTab} index={4}>
+        Account
       </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
+      <TabPanel value={currentTab} index={5}>
+        Settings
       </TabPanel>
     </Box>
   );
