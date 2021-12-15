@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Nav from "../screens/Nav";
 import Footer from "../screens/Footer";
@@ -17,7 +17,7 @@ import PrivateRoute from "./PrivateRoute";
 
 export default function AppRouter() {
     return (
-        <Router>
+        <>
             <Nav />
             <Switch>
                 <Route path="/" exact component={() => <Home />} />
@@ -31,6 +31,6 @@ export default function AppRouter() {
                 <Route path="*" component={() => <NotFound />} />
             </Switch>
             <Footer />
-        </Router>
+        </>
     )
 }

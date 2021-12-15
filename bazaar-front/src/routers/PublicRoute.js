@@ -3,9 +3,9 @@ import useAuth from '../auth/useAuth';
 
 export default function PublicRoute(props) {
 
-    const { user } = useAuth();
+    const { isLogged } = useAuth();
 
-    if (user) return <Redirect to="/" />
+    if (isLogged()) return <Redirect to="/" />
 
     return (
         <Route {...props} />

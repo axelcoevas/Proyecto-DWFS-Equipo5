@@ -2,23 +2,18 @@ import React, {useState} from "react";
 import { Button, Grid, TextField } from "@mui/material";
 import {Link} from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
+import useAuth from "../../../auth/useAuth";
 
 const LoginForm = () => {
+
+    const {login} = useAuth();
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const formSubmitHandler = e => {
         e.preventDefault()
-
-
-        fetch('http://bazaar-api-bedu.herokuapp.com/api/v1/users/login', {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: email, password }),
-        })
-        
+        login({email: email, password: password})
     }
 
     const style = makeStyles(theme => ({
@@ -61,6 +56,7 @@ const LoginForm = () => {
                     rowGap={4}>
                     <TextField 
                         id="email-textfield" 
+                        name="email"
                         className={classes.textField} 
                         label="Email" 
                         variant="outlined" 
@@ -72,6 +68,7 @@ const LoginForm = () => {
                     />
                     <TextField 
                         id="password-textfield" 
+                        name="password"
                         className={classes.textField} 
                         label="Password" 
                         variant="outlined" 
