@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 import Rating from "@mui/material/Rating";
+import { TextField } from "@mui/material";
 // import IconButton from "@material-ui/core/IconButton";
 // import CloseIcon from "@material-ui/icons/Close";
 
@@ -41,9 +42,8 @@ export default function ReviewModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [productRating, setProductRating] = useState(3);
-  const [deliveryRating, setDeliveryRating] = useState(3);
   const [experienceRating, setExperienceRating] = useState(3);
+  const [experienceSummary, setExperienceSummary] = useState("");
 
   return (
     <div>
@@ -62,43 +62,13 @@ export default function ReviewModal() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-title" variant="h4" component="h2">
-              How did we do?
+             Rate your purchase
             </Typography>
-            {/* <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography> */}
             <Typography sx={{ margin: 2 }}>
-              Please let us know how we can improve your experience!
+            Your experience is important for us!
             </Typography>
 
             <Box style={ratingContainer}>
-              <Typography variant="h5">
-                How would you rate your product?
-              </Typography>
-              <Rating
-                name="simple-controlled"
-                value={productRating}
-                onChange={(event, newValue) => setProductRating(newValue)}
-                size="large"
-              />
-            </Box>
-
-            <Box style={ratingContainer}>
-              <Typography variant="h5">
-                How would you rate your product delivery?
-              </Typography>
-              <Rating
-                name="simple-controlled"
-                value={deliveryRating}
-                onChange={(event, newValue) => setDeliveryRating(newValue)}
-                size="large"
-              />
-            </Box>
-
-            <Box style={ratingContainer}>
-              <Typography variant="h5">
-                How would you rate your overall experience?
-              </Typography>
               <Rating
                 name="simple-controlled"
                 value={experienceRating}
@@ -106,6 +76,16 @@ export default function ReviewModal() {
                 size="large"
               />
             </Box>
+
+           
+            <Box style={ratingContainer}>
+              <TextField
+                name="simple-textfield"
+                placeholder="Type a summary (optional)"
+                onChange={(event, newValue) => setExperienceSummary(newValue)}
+              />
+            </Box>
+
 
             <Button onClick={handleClose} variant="contained">
               Submit
