@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 import Home from "./components/Home";
+import Orders from "./components/Orders";
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -15,6 +16,7 @@ const TabPanel = (props) => {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       {...other}
+      style={{ flex: 1 }}
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
@@ -49,6 +51,7 @@ const Dashboard = () => {
       >
         <Tab label="Home" />
         <Tab label="Catalog" />
+        <Tab label="Orders" />
         <Tab label="Customers" />
         <Tab label="Statistics" />
         <Tab label="Account" />
@@ -61,15 +64,18 @@ const Dashboard = () => {
         Catalog
       </TabPanel>
       <TabPanel value={currentTab} index={2}>
-        Customers
+        <Orders />
       </TabPanel>
       <TabPanel value={currentTab} index={3}>
-        Statistics
+        Customers
       </TabPanel>
       <TabPanel value={currentTab} index={4}>
-        Account
+        Statistics
       </TabPanel>
       <TabPanel value={currentTab} index={5}>
+        Account
+      </TabPanel>
+      <TabPanel value={currentTab} index={6}>
         Settings
       </TabPanel>
     </Box>
