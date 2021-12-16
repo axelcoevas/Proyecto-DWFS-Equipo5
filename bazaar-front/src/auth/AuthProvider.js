@@ -19,9 +19,13 @@ export default function AuthProvider({ children }) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userCredentials),
         };
-        fetch('http://bazaar-api-bedu.herokuapp.com/api/v1/users/login', requestOptions)
-            .then(response => response.json())
-            .then((data) => setUser(localStorage.setItem('user', JSON.stringify({ username: data.username, email: data.email, token: data.token }))))
+        try {
+            fetch('http://bazaar-api-bedu.herokuapp.com/api/v1/users/login', requestOptions)
+                .then(response => response.json())
+                .then((data) => setUser(localStorage.setItem('user', JSON.stringify({ username: data.username, email: data.email, token: data.token }))))
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     const logout = () => setUser(localStorage.removeItem('user'));
