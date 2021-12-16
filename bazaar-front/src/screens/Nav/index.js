@@ -47,7 +47,7 @@ const Nav = () => {
 
 
   const handleOpenNotifications = () => {
-    const openLink = (account === 'seller') ? "/dashboard" : "/my-orders"
+    const openLink = (account === 'buyer') ? "/dashboard" : "/myorders"
     history.push(openLink)
   };
 
