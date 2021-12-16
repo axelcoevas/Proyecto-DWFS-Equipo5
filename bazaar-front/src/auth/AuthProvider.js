@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createContext } from "react";
 import { useHistory } from "react-router-dom";
 import types from '../helpers/types';
@@ -9,9 +9,10 @@ export default function AuthProvider({ children }) {
 
     const history = useHistory();
     const session = JSON.parse(localStorage.getItem('user'));
+    const type = JSON.parse(localStorage.getItem('account'));
 
     const [user, setUser] = useState(session);
-    const [account, setAccount] = useState(null);
+    const [account, setAccount] = useState(type);
 
     const login = (userCredentials) => {
 
@@ -25,7 +26,7 @@ export default function AuthProvider({ children }) {
             fetch('http://bazaar-api-bedu.herokuapp.com/api/v1/users/login', requestOptions)
                 .then(response => response.json())
                 .then((data) => setUser(localStorage.setItem('user', JSON.stringify({ username: data.username, email: data.email, type: data.type, token: data.token }))))
-                .then(setAccount(user.type))
+                .then(setAccount(localStorage.setItem('account', JSON.stringify(user.type))))
         } catch (err) {
             console.error(err);
         }
@@ -35,7 +36,7 @@ export default function AuthProvider({ children }) {
 
     const isLogged = () => JSON.parse(localStorage.getItem('user'));
 
-    const hasType = () => { return account };
+    const hasType = () => JSON.parse(localStorage.getItem('account'));;
 
     const contextValue = {
         user,

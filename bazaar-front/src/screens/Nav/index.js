@@ -32,7 +32,7 @@ import useAuth from "../../auth/useAuth";
 
 const Nav = () => {
 
-  const { logout, account } = useAuth();
+  const { logout, hasType } = useAuth();
 
   // const [account, setAccount] = useState("seller")
   const [anchorEl, setAnchorEl] = useState(null);
@@ -47,7 +47,7 @@ const Nav = () => {
 
 
   const handleOpenNotifications = () => {
-    const openLink = (account === 'seller') ? "/dashboard" : "/myorders"
+    const openLink = (hasType() === "seller") ? '/dashboard' : 'myorders'
     history.push(openLink)
   };
 
