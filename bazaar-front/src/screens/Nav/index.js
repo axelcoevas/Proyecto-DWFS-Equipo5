@@ -46,7 +46,7 @@ const Nav = () => {
   };
 
 
-  const handleOpenNotifications= () => {
+  const handleOpenNotifications = () => {
     const openLink = (account === 'seller') ? "/dashboard" : "/my-orders"
     history.push(openLink)
   };
@@ -117,7 +117,7 @@ const Nav = () => {
           Profile
         </Link>
       </MenuItem>
-      <MenuItem onClick={logout()}>
+      <MenuItem onClick={handleMenuClose}>
         <Link
           to="login"
           style={{
@@ -157,7 +157,7 @@ const Nav = () => {
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-    
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -285,7 +285,7 @@ const Nav = () => {
                 <NotificationsIcon />
               </Badge>
 
-              
+
             </IconButton>
             <IconButton
               size="large"
