@@ -22,7 +22,7 @@ export default function AuthProvider({ children }) {
         try {
             fetch('http://bazaar-api-bedu.herokuapp.com/api/v1/users/login', requestOptions)
                 .then(response => response.json())
-                .then((data) => setUser(localStorage.setItem('user', JSON.stringify({ username: data.username, email: data.email, type: this.type, token: data.token }))))
+                .then((data) => setUser(localStorage.setItem('user', JSON.stringify({ username: data.username, email: data.email, type: data.type, token: data.token }))))
         } catch (err) {
             console.error(err);
         }
