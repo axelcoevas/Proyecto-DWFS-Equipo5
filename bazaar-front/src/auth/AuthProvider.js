@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createContext } from "react";
 import { useHistory } from "react-router-dom";
 //import types from '../helpers/types';
@@ -11,15 +11,16 @@ export default function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
 
     const login = (userCredentials) => {
-        fetch('http://bazaar-api-bedu.herokuapp.com/api/v1/users/login', {
+
+        const requestOptions = {
             method: "POST",
-            credentials: "include",
+            cors: "no-cors",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userCredentials),
-        })
+        };
+        fetch('http://bazaar-api-bedu.herokuapp.com/api/v1/users/login', requestOptions)
             .then(response => response.json())
             .then((data) => setUser({ username: data.username, email: data.email, token: data.token }))
-        console.log(user);
     }
 
     const logout = () => setUser(null);
