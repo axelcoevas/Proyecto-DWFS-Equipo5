@@ -21,6 +21,7 @@ const rows = [
 
 const Orders = () => {
 
+  const [orderStatus, setOrderStatus] = useState("Confirm")
   const [showButtons, setShowButtons] = useState(true)
   const [dialogTitle, setDialogTitle] = useState("Confirm Order")
   const [dialogMessage, setDialogMessage] = useState("Do you want to confirm this order now?")
@@ -47,7 +48,7 @@ const handleToast = () =>{
       success: {
 
         render({_}){
-
+          setOrderStatus("VIEW")
           setDialogTitle("Buyer's Telephone")
           setDialogMessage("📞 (477) 346-9483")
           setShowButtons(false)
@@ -92,7 +93,7 @@ const handleToast = () =>{
                   <TableCell align="right">{row.total}</TableCell>
                   {/* <TableCell align="right">{row.protein}</TableCell> */}
                   <TableCell align="right">
-                    <Button onClick={handleClickOpen}>Confirm</Button>
+                    <Button onClick={handleClickOpen}>{orderStatus}</Button>
                       <Dialog
                         open={open}
                         onClose={handleClose}
