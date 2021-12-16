@@ -6,7 +6,7 @@ export default function PrivateRoute({ hasType: type, ...rest }) {
     const location = useLocation();
     const { hasType, isLogged } = useAuth();
 
-    if (type && !hasType(type)) return <Redirect to="/" />;
+    if (type && !hasType()) return <Redirect to="/" />;
 
     if (!isLogged()) return <Redirect to="/login" />
 

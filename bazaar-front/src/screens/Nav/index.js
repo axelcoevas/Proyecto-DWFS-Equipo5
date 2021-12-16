@@ -32,9 +32,9 @@ import useAuth from "../../auth/useAuth";
 
 const Nav = () => {
 
-  const { logout } = useAuth();
+  const { logout, account } = useAuth();
 
-  const [account, setAccount] = useState("seller")
+  // const [account, setAccount] = useState("seller")
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
@@ -47,7 +47,7 @@ const Nav = () => {
 
 
   const handleOpenNotifications = () => {
-    const openLink = (account === 'seller') ? "/dashboard" : "/my-orders"
+    const openLink = (account === 'seller') ? "/dashboard" : "/myorders"
     history.push(openLink)
   };
 
@@ -119,14 +119,14 @@ const Nav = () => {
       </MenuItem>
       <MenuItem onClick={handleMenuClose}>
         <Link
-          to="dashboard"
+          to="login"
           style={{
             textDecoration: "none",
             textUnderline: "none",
             color: "black",
           }}
         >
-          Dashboard
+          Logout
         </Link>
       </MenuItem>
     </Menu>
