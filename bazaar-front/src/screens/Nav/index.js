@@ -119,14 +119,14 @@ const Nav = () => {
       </MenuItem>
       <MenuItem onClick={handleMenuClose}>
         <Link
-          to="login"
+          to="dashboard"
           style={{
             textDecoration: "none",
             textUnderline: "none",
             color: "black",
           }}
         >
-          Logout
+          Dashboard
         </Link>
       </MenuItem>
     </Menu>
