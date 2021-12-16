@@ -14,23 +14,25 @@ import NotFound from "../screens/NotFound";
 import Search from "../screens/Search";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
+import MyOrders from "../screens/MyOrders";
 
 export default function AppRouter() {
-    return (
-        <>
-            <Nav />
-            <Switch>
-                <Route path="/" exact component={() => <Home />} />
-                <Route path="/product" exact component={() => <Product />} />
-                <Route path="/search" exact component={() => <Search />} />
-                <PublicRoute path="/login" exact component={() => <Login />} />
-                <PublicRoute path="/SignIn" exact component={() => <SignIn />} />
-                <PrivateRoute path="/profile" exact component={() => <Profile />} />
-                <PrivateRoute path="/dashboard" exact component={() => <Dashboard />} />
-                <PrivateRoute path="/compra" exact component={() => <Compra />} />
-                <Route path="*" component={() => <NotFound />} />
-            </Switch>
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Nav />
+      <Switch>
+        <Route path="/" exact component={() => <Home />} />
+        <Route path="/product" exact component={() => <Product />} />
+        <Route path="/search" exact component={() => <Search />} />
+        <PublicRoute path="/login" exact component={() => <Login />} />
+        <PublicRoute path="/SignIn" exact component={() => <SignIn />} />
+        <PrivateRoute path="/profile" exact component={() => <Profile />} />
+        <PrivateRoute path="/dashboard" exact component={() => <Dashboard />} />
+        <Route path="/myorders" exact component={() => <MyOrders />} />
+        <PrivateRoute path="/compra" exact component={() => <Compra />} />
+        <Route path="*" component={() => <NotFound />} />
+      </Switch>
+      <Footer />
+    </>
+  );
 }
