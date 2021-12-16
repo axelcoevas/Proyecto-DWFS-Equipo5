@@ -7,20 +7,64 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 import { Link } from "react-router-dom";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
 
-function createData(customer, item, total, orderId) {
-  return { customer, item, total, orderId };
+function createData(customer, item, total) {
+  return { customer, item, total };
 }
 
 const rows = [
-  createData("Antonio Labra", "Red bomber", 1299.0, 100001),
-  createData("David Dorantes", "Silverware", 239, 100002),
-  createData("Diego Melo", "Xbox 360", 299, 100003),
-  createData("Rogelio Magaña", "Used Sewing Kit", 299, 100004),
-  createData("Axel Cuevas", "Macbook Air", 299, 100005),
+  createData("fergcast8©gmail.com", "Red bomber jacket XS", 1250.00)
 ];
 
 const Orders = () => {
+
+  const [showButtons, setShowButtons] = useState(true)
+  const [dialogTitle, setDialogTitle] = useState("Confirm Order")
+  const [dialogMessage, setDialogMessage] = useState("Do you want to confirm this order now?")
+  const [open, setOpen] = useState(false);
+
+const handleClickOpen = () => {
+  setOpen(true);
+};
+
+const handleClose = () => {
+  setOpen(false);
+};
+
+const handleToast = () =>{
+  const resolveWithSomeData = new Promise(resolve => setTimeout(() => resolve("OK"), 3500));
+  toast.promise(
+    resolveWithSomeData,
+    {
+      pending: {
+        render(){
+          return "Confirming your order"
+        }
+      },
+      success: {
+
+        render({_}){
+
+          setDialogTitle("Buyer's Telephone")
+          setDialogMessage("📞 (477) 346-9483")
+          setShowButtons(false)
+         
+          return `Order confirmed!`
+        }
+      },
+      error: {
+        render({data}){
+          // When the promise reject, data will contains the error
+         alert(data)
+        }
+      }
+    }
+)
+};
+  
   return (
     <div>
       <h1>Orders</h1>
@@ -32,8 +76,7 @@ const Orders = () => {
                 <TableCell>Customer</TableCell>
                 <TableCell align="right">Item</TableCell>
                 <TableCell align="right">Total</TableCell>
-                <TableCell align="right">Order Id</TableCell>
-                <TableCell align="right">Go to order</TableCell>
+                <TableCell align="right">Confirm Order</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -47,10 +90,33 @@ const Orders = () => {
                   </TableCell>
                   <TableCell align="right">{row.item}</TableCell>
                   <TableCell align="right">{row.total}</TableCell>
-                  <TableCell align="right">{row.orderId}</TableCell>
                   {/* <TableCell align="right">{row.protein}</TableCell> */}
                   <TableCell align="right">
-                    <Link to="#">Link</Link>
+                    <Button onClick={handleClickOpen}>Confirm</Button>
+                      <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                      >
+                        <DialogTitle id="alert-dialog-title">
+                          {dialogTitle}
+                        </DialogTitle>
+                        <DialogContent>
+                          <DialogContentText id="alert-dialog-description">
+                           {dialogMessage}
+                          </DialogContentText>
+                        </DialogContent>
+
+                        { showButtons ? <DialogActions>
+                          <Button onClick={handleClose}>Cancel</Button>
+                          <Button onClick={handleToast} autoFocus>
+                            Ok
+                          </Button>
+                          <ToastContainer/>
+                        </DialogActions> : null }
+                        
+                    </Dialog>
                   </TableCell>
                 </TableRow>
               ))}
