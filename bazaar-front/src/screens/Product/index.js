@@ -8,8 +8,11 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import { useState, useEffect } from "react";
 import ProductCard from "./components/ProductCard";
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
+import { ToastContainer, toast } from 'react-toastify';
 
 import "./index.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 const product = {
   id: 100000134,
@@ -18,17 +21,59 @@ const product = {
   price: 1250,
   quantity: 2,
   // props not on db model
-  seller: "Seller name",
+  seller: "Antonio Labra",
   seller_image:
     "https://pbs.twimg.com/profile_images/1086332409677660160/Lorn8QZ2.jpg",
-  description: `I am convinced that you don't need to spend a fortune to look like a million. I like things simple. I have a fantastic relationship with money. I use it to buy my freedom. Fashion can be this mysterious thing that you can't explain. It's really easy to get colors right. It's really hard to get black - and neutrals - right. Black is certainly a color but it's also an illusion.
-
-    I can design a collection in a day and I always do, cause I've always got a load of Italians on my back, moaning that it's late. Being one step ahead of a fashion trend is not so important to me. What matters is to always forge ahead. I think the idea of mixing luxury and mass-market fashion is very modern, very now - no one wears head-to-toe designer anymore. I try to contrast; life today is full of contrast... We have to change. My learning process is by eye alone; it's not at all scientific.
-
-    `,
+  description: `100% Polyester
+  Imported
+  Zipper closure
+  slim fit wear, soft, comfortable and breathable.
+  Fashion and Stylish: Rib collar, cuff and hem, Zipper Closure, Long Sleeve.
+  Suitable for: Casual, Outdoor, Daily, School, Working, Camping, Sports, Athletics and so on.
+  Season: Spring & Autumn
+  Machine Washing Available`,
 };
 
-const otherProducts = [product, product, product];
+const productA= {
+  id: 100000135,
+  name: "Gildan Mens Ultra Cotton",
+  image: "https://m.media-amazon.com/images/I/715bY3uEYgL._AC_UX679_.jpg",
+  price: 299.99,
+  quantity: 1,
+  // props not on db model
+  seller: "Antonio Labra",
+  seller_image:
+    "https://pbs.twimg.com/profile_images/1086332409677660160/Lorn8QZ2.jpg",
+  description: `Solids: 100% Cotton; Ash Grey: 99% Cotton, 1%`,
+};
+
+const productB = {
+  id: 100000136,
+  name: "Gioberti Mens Cotton",
+  image: "https://m.media-amazon.com/images/I/81C6s5TDjqL._AC_UX679_.jpg",
+  price: 1250,
+  quantity: 2,
+  // props not on db model
+  seller: "Antonio Labra",
+  seller_image:
+    "https://pbs.twimg.com/profile_images/1086332409677660160/Lorn8QZ2.jpg",
+  description: `Solid Cotton Fabric with Soft Flannel Lining`,
+};
+
+const productC = {
+  id: 100000137,
+  name: "Pack 2 Christmas Tabletop Tree",
+  image: "https://m.media-amazon.com/images/I/81M-E0KFiJL._AC_SL1500_.jpg",
+  price: 259.5,
+  quantity: 1,
+  // props not on db model
+  seller: "Antonio Labra",
+  seller_image:
+    "https://pbs.twimg.com/profile_images/1086332409677660160/Lorn8QZ2.jpg",
+  description: `ECO-FRIENDLY & REALISTIC - Made of PVC`,
+};
+
+const otherProducts = [productA, productB, productC];
 
 const Product = () => {
   // useEffect(() => {
@@ -40,6 +85,41 @@ const Product = () => {
   //     }
   // }, []);
   const [rating, setRating] = useState(0);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleToast = () =>{
+    const resolveWithSomeData = new Promise(resolve => setTimeout(() => resolve("OK"), 3500));
+    toast.promise(
+      resolveWithSomeData,
+      {
+        pending: {
+          render(){
+            return "Processing your order"
+          }
+        },
+        success: {
+          render({_}){
+            handleClose()
+            return `Order saved!`
+          }
+        },
+        error: {
+          render({data}){
+            // When the promise reject, data will contains the error
+           alert(data)
+          }
+        }
+      }
+  )
+  };
 
   return (
     <Container sx={{ padding: "30px" }}>
@@ -106,9 +186,33 @@ const Product = () => {
                 }}
               />
             </Paper>
-            <Button variant="contained" sx={{ padding: 2 }}>
+            <div>
+            <Button variant="contained" sx={{ padding: 2 }} onClick={handleClickOpen}>
               Order now!
             </Button>
+            <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Confirm Order"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Are you sure you want to order "{product.name}" now?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleToast} autoFocus>
+            Ok
+          </Button>
+          <ToastContainer/>
+        </DialogActions>
+      </Dialog>
+            </div>
           </Box>
         </Box>
       </Box>
