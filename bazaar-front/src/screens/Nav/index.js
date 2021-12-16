@@ -34,6 +34,7 @@ const Nav = () => {
 
   const { logout } = useAuth();
 
+  const [account, setAccount] = useState("seller")
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
@@ -42,6 +43,12 @@ const Nav = () => {
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+
+  const handleOpenNotifications= () => {
+    const openLink = (account === 'seller') ? "/dashboard" : "/my-orders"
+    history.push(openLink)
   };
 
   const handleMobileMenuClose = () => {
@@ -150,18 +157,7 @@ const Nav = () => {
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
+    
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -272,21 +268,24 @@ const Nav = () => {
           <Box sx={{ display: { xs: "none", md: "flex" }, margin: 1 }}>
             <IconButton
               size="large"
-              aria-label="show 4 new mails"
+              aria-label="show your likes"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={0} color="error">
                 <FavoriteBorderIcon />
               </Badge>
             </IconButton>
             <IconButton
               size="large"
-              aria-label="show 10 new notifications"
+              aria-label="show new notifications"
               color="inherit"
+              onClick={() => handleOpenNotifications()}
             >
-              <Badge badgeContent={10} color="error">
+              <Badge badgeContent={0} color="error">
                 <NotificationsIcon />
               </Badge>
+
+              
             </IconButton>
             <IconButton
               size="large"
