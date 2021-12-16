@@ -28,8 +28,12 @@ import StyledInputBase from "./components/StyledInputBase";
 // </div>
 
 import Logo from "../Login/components/logo";
+import useAuth from "../../auth/useAuth";
 
 const Nav = () => {
+
+  const { logout } = useAuth();
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
@@ -104,6 +108,18 @@ const Nav = () => {
           }}
         >
           Profile
+        </Link>
+      </MenuItem>
+      <MenuItem onClick={logout()}>
+        <Link
+          to="login"
+          style={{
+            textDecoration: "none",
+            textUnderline: "none",
+            color: "black",
+          }}
+        >
+          Logout
         </Link>
       </MenuItem>
     </Menu>
@@ -201,7 +217,7 @@ const Nav = () => {
               variant="h4"
               noWrap
               component="div"
-              // sx={{ display: { xs: "none", sm: "block" } }}
+            // sx={{ display: { xs: "none", sm: "block" } }}
             >
               {/* MKT PLACE */}
               <Box sx={{ margin: 1, marginLeft: 2 }}>
