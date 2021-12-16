@@ -28,8 +28,12 @@ import StyledInputBase from "./components/StyledInputBase";
 // </div>
 
 import Logo from "../Login/components/logo";
+import useAuth from "../../auth/useAuth";
 
 const Nav = () => {
+
+  const { logout } = useAuth();
+
   const [account, setAccount] = useState("seller")
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -42,7 +46,7 @@ const Nav = () => {
   };
 
 
-  const handleOpenNotifications= () => {
+  const handleOpenNotifications = () => {
     const openLink = (account === 'seller') ? "/dashboard" : "/my-orders"
     history.push(openLink)
   };
@@ -113,6 +117,18 @@ const Nav = () => {
           Profile
         </Link>
       </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link
+          to="dashboard"
+          style={{
+            textDecoration: "none",
+            textUnderline: "none",
+            color: "black",
+          }}
+        >
+          Dashboard
+        </Link>
+      </MenuItem>
     </Menu>
   );
 
@@ -141,7 +157,7 @@ const Nav = () => {
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-    
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -197,7 +213,7 @@ const Nav = () => {
               variant="h4"
               noWrap
               component="div"
-              // sx={{ display: { xs: "none", sm: "block" } }}
+            // sx={{ display: { xs: "none", sm: "block" } }}
             >
               {/* MKT PLACE */}
               <Box sx={{ margin: 1, marginLeft: 2 }}>
@@ -269,7 +285,7 @@ const Nav = () => {
                 <NotificationsIcon />
               </Badge>
 
-              
+
             </IconButton>
             <IconButton
               size="large"
